@@ -29,12 +29,12 @@ t_list	*ft_pre_lstlast(t_list *lst)
 		i++;
 	}
 	// printf("tmp: (%d) -----%s---- \n", i, tmp->value);
-	while (i - 3 >= j)
+	while (i - 1 >= j)
 	{
 		lst = lst->next;
 		j++;
 	}
-	// printf("prev: (%d) -----%s---- \n\n", i, lst->value);
+	printf("prev:------------------------------------%s \n", lst->value);
 	return (lst);
 }
 
@@ -87,7 +87,7 @@ t_list	*ft_lstnew_2(void *value, t_list *nil)
 	if (!(lst_new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
 	lst_new->value = value;
-	printf("[%s]  ", lst_new->value);
+	// printf("[%s]  ", lst_new->value);
 	lst_new->next = nil;
 	// lst_new->prev = NULL;
 	// printf("%s\n", (lst_new->next)->value);
@@ -113,6 +113,13 @@ void	ft_lstadd_back_2(t_list **lst, t_list *new, t_list *nil)
 	(*lst)->next = new;
 	if (ft_strncmp((*lst)->value, "nil", 3))
 		(*lst)->prev = ft_pre_lstlast(*lst);
+	// (*lst)->prev = ft_pre_lstlast(*lst);
+
+	printf("tmp %s  ", (*lst)->value);
+	printf("next %s  ", ((*lst)->next)->value);
+	printf("prev %s\n\n", ((*lst)->prev)->value);
+
+
 	nil->prev = new;
 	// printf("prev  %s / tmp  %s / next  %s \n", (tmp->prev)->value, tmp->value, (tmp->next)->value);
 	/*
@@ -135,7 +142,7 @@ int main(int argc, char *argv[])
 		// printf("[tmp %s]", list->value);/////////////////////////
 		ft_lstadd_back_2(&list, ft_lstnew_2(argv[i], nil), nil);
 		i++;
-		printf("prev %s / tmp %s / next %s\n", (list->prev)->value, list->value, (list->next)->value);
+		// printf("prev %s / tmp %s / next %s\n", (list->prev)->value, list->value, (list->next)->value);
 	}
 
 	print_circulatio(list);

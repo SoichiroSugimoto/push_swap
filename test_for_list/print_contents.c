@@ -67,7 +67,7 @@ void	print_circulatio(t_list *list)
 			j++;
 		if (j >= 4)
 			break;
-		list = list->next;
+		list = list->prev;
 		i++;
 	}
 }
