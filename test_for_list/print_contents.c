@@ -4,34 +4,70 @@
 #include <string.h>
 
 
-void	check_nil(char *str)
+int	check_nil(char *str)
 {
 	if (!(strcmp(str,"nil")))
 	{
-		printf("nil");
-		exit(0) ;
+		// printf("nil");
+		return (0) ;
 	}
-	return ;
+	return (1);
 }
 
 void print_content(t_list *list)
 {
 	int i = 0;
 
+	while ((strcmp(list->value,"nil")))
+		list = list->next;
+	list = list->next;
 	printf("HERE IS IN THE LIST\n\n");
 	while(list)
 	{
 		printf("%d %s\n",i , list->value);
-		check_nil(list->value);
+		if (check_nil(list->value) == 0)
+			break;
 		list = list->next;
 		i++;
 	}
+	// printf("[[[[%s]]]]\n", list->value);
+	list = list->next;
+	// printf("[[[[%s]]]]\n", list->value);
+	// list = list->next;
+	// printf("[[[[%s]]]]\n", list->value);
+	// list = list->next;
+	// printf("[[[[%s]]]]\n", list->value);
+	// list = list->next;
 	printf("\nOPPOSIOTION\n");
 	while(i >= 1)
 	{
 		list = list->prev;
 		printf("%d %s\n", i, list->value);
-		check_nil(list->value);
+		if (check_nil(list->value) == 0)
+			break;
 		i--;
+	}
+	printf("\n\nFin\n");
+}
+
+void	print_circulatio(t_list *list)
+{
+	int i = 0;
+	int j = 0;
+
+	while ((strcmp(list->value,"nil")))
+		list = list->next;
+	list = list->next;
+
+	printf("\n\n");
+	while(list)
+	{
+		printf("%d %s\n",i , list->value);
+		if (check_nil(list->value) == 0)
+			j++;
+		if (j >= 4)
+			break;
+		list = list->next;
+		i++;
 	}
 }
