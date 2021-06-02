@@ -30,21 +30,16 @@ void print_content(t_list *list)
 		list = list->next;
 		i++;
 	}
-	// printf("[[[[%s]]]]\n", list->value);
-	list = list->next;
-	// printf("[[[[%s]]]]\n", list->value);
-	// list = list->next;
-	// printf("[[[[%s]]]]\n", list->value);
-	// list = list->next;
-	// printf("[[[[%s]]]]\n", list->value);
-	// list = list->next;
 	printf("\nOPPOSIOTION\n");
 	while(i >= 1)
 	{
 		list = list->prev;
 		printf("%d %s\n", i, list->value);
 		if (check_nil(list->value) == 0)
+		{
+			printf("nil\n");
 			break;
+		}
 		i--;
 	}
 	printf("\n\nFin\n");
@@ -56,8 +51,8 @@ void	print_circulatio(t_list *list)
 	int j = 0;
 
 	while ((strcmp(list->value,"nil")))
-		list = list->next;
-	list = list->next;
+		list = list->prev;
+	list = list->prev;
 
 	printf("\n\n");
 	while(list)
