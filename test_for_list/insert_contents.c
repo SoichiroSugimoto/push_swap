@@ -96,14 +96,16 @@ int main(int argc, char *argv[])
 	int i = 1;
 	t_list *list;
 
+	ft_lstadd_back_2(&list, ft_lstnew_2(check_num_value(argv[i])));
 	while (i < argc)
 	{
 		ft_lstadd_back_2(&list, ft_lstnew_2(check_num_value(argv[i])));
 		i++;
 	}
 
-	// print_circulatio(list);
-	print_content(list);
+	print_circulatio_2nd(list);
+	print_circulatio(list);
+	// print_content(list);
 }
 
 

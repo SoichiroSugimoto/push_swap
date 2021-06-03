@@ -17,6 +17,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 t_list	*ft_lstnew(void *value);
 t_list	*ft_lstlast(t_list *lst);
 void	print_circulatio(t_list *list);
+void	print_circulatio_2nd(t_list *list);
 
 
 #endif

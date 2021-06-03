@@ -14,6 +14,39 @@ int	check_nil(char *str)
 	return (1);
 }
 
+
+void	print_circulatio_2nd(t_list *list)
+{
+	int i = 0;
+	int j = 0;
+
+	while ((strcmp(list->value,"nil")))
+		list = list->next;
+	list = list->next;
+
+	printf("\n\n");
+	while(list)
+	{
+		printf("%d %s\n",i , list->value);
+		if (check_nil(list->value) == 0)
+			j++;
+		if (j >= 4)
+			break;
+		list = list->next;
+		i++;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
 void print_content(t_list *list)
 {
 	int i = 0;
