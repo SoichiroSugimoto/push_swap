@@ -2,6 +2,23 @@
 #include <stdio.h>
 #include <string.h>
 
+char	*check_num_value(char *str)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+	{
+		if (!(48 <= str[i] && str[i] <= 57))
+		{
+			printf("Error\n");
+			exit (0);
+		}
+		i++;
+	}
+	return (str);
+}
+
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
@@ -38,7 +55,7 @@ t_list	*put_setinel(t_list **lst, t_list *new)
 	return NULL;
 }
 
-t_list	*ft_lstnew_2(void *value, t_list *nil)
+t_list	*ft_lstnew_2(void *value)
 {
 	t_list *lst_new;
 
@@ -48,9 +65,10 @@ t_list	*ft_lstnew_2(void *value, t_list *nil)
 	return (lst_new);
 }
 
-void	ft_lstadd_back_2(t_list **lst, t_list *new, t_list *nil)
+void	ft_lstadd_back_2(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
+	t_list	*nil;
 
 	if (!lst)
 	{
@@ -59,30 +77,49 @@ void	ft_lstadd_back_2(t_list **lst, t_list *new, t_list *nil)
 	}
 	if (!*lst)
 	{
-		*lst = new;
-		return ;
+		nil = put_setinel(lst, make_sentinel());
+		*lst = nil;
 	}
-	(*lst) = ft_lstlast(*lst);
-	tmp = *lst;
-	(*lst)->next = new;
-	new->prev = (*lst);
-	new->next = nil;
-	nil->prev = new;
+	else
+	{
+		(*lst) = ft_lstlast(*lst);
+		tmp = *lst;
+		(*lst)->next = new;
+		new->prev = (*lst);
+		new->next = nil;
+		nil->prev = new;
+	}
 }
 
 int main(int argc, char *argv[])
 {
 	int i = 1;
 	t_list *list;
-	t_list *nil;
 
-	nil = put_setinel(&list, make_sentinel());
 	while (i < argc)
 	{
-		ft_lstadd_back_2(&list, ft_lstnew_2(argv[i], nil), nil);
+		ft_lstadd_back_2(&list, ft_lstnew_2(check_num_value(argv[i])));
 		i++;
 	}
 
 	// print_circulatio(list);
 	print_content(list);
 }
+
+
+// int main(int argc, char *argv[])
+// {
+// 	int i = 1;
+// 	t_list *list;
+// 	t_list *nil;
+
+// 	nil = put_setinel(&list, make_sentinel());
+// 	while (i < argc)
+// 	{
+// 		ft_lstadd_back_2(&list, ft_lstnew_2(argv[i], nil), nil);
+// 		i++;
+// 	}
+
+// 	// print_circulatio(list);
+// 	print_content(list);
+// }
