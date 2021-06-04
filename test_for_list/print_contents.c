@@ -1,4 +1,5 @@
 #include "test_for_list.h"
+#include "use_operations/use_operations.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,19 +21,23 @@ void	print_circulatio_2nd(t_list *list)
 	int i = 0;
 	int j = 0;
 
-	while ((strcmp(list->value,"nil")))
-		list = list->next;
-	list = list->next;
+	// while ((strcmp(list->value,"nil")))
+	// 	list = list->next;
+	// list = list->next;
 
+	// swap_operation(&list);
+	catch_top(&list);
+	// catch_2nd_top(&list);
+	// catch_bottom(&list);
 	printf("\n\n");
 	while(list)
 	{
 		printf("%d %s\n",i , list->value);
 		if (check_nil(list->value) == 0)
 			j++;
-		if (j >= 4)
+		if (j >= 3)
 			break;
-		list = list->next;
+		list = list->prev;
 		i++;
 	}
 }

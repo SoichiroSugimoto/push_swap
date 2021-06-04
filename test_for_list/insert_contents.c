@@ -1,4 +1,5 @@
 #include "test_for_list.h"
+#include "use_operations/use_operations.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -80,15 +81,14 @@ void	ft_lstadd_back_2(t_list **lst, t_list *new)
 		nil = put_setinel(lst, make_sentinel());
 		*lst = nil;
 	}
-	else
-	{
+
 		(*lst) = ft_lstlast(*lst);
 		tmp = *lst;
 		(*lst)->next = new;
 		new->prev = (*lst);
 		new->next = nil;
 		nil->prev = new;
-	}
+
 }
 
 int main(int argc, char *argv[])
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 	int i = 1;
 	t_list *list;
 
-	ft_lstadd_back_2(&list, ft_lstnew_2(check_num_value(argv[i])));
+	// ft_lstadd_back_2(&list, ft_lstnew_2(check_num_value(argv[i])));
 	while (i < argc)
 	{
 		ft_lstadd_back_2(&list, ft_lstnew_2(check_num_value(argv[i])));
@@ -104,8 +104,11 @@ int main(int argc, char *argv[])
 	}
 
 	print_circulatio_2nd(list);
-	print_circulatio(list);
+	// print_circulatio(list);
 	// print_content(list);
+
+
+	printf("\n\n%d\n", count_list(list));
 }
 
 
