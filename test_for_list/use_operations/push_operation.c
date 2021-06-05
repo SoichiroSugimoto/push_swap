@@ -1,8 +1,25 @@
 #include "use_operations.h"
 
+/////////        pb         //////////////
 void	push_operation(t_list **lst_a, t_list **lst_b)
 {
+	t_list *nil_a;
+	t_list *top_a;
+	t_list *nil_b;
+	t_list *top_b;
 
+
+	//To eliminate top_a from Stack [a]
+	catch_top(lst_a);
+	top_a = *lst_a;
+	catch_nil(lst_a);
+	nil_a = *lst_a;
+	catch_2nd_top(lst_a);
+	(*lst_a)->prev = nil_a;
+	nil_a->next = *lst_a;
+
+	//To take top_a from Stack [b]
+	ft_lstadd_nilback(&lst_b, top_a);
 }
 
 
