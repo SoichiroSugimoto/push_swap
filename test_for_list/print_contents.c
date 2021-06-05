@@ -26,6 +26,8 @@ void	print_circulatio_2nd(t_list *list)
 	// list = list->next;
 
 	// swap_operation(&list);
+	// rotate_operation(&list);
+	reverse_rotate_operation(&list);
 	catch_top(&list);
 	// catch_2nd_top(&list);
 	// catch_bottom(&list);
@@ -37,7 +39,7 @@ void	print_circulatio_2nd(t_list *list)
 			j++;
 		if (j >= 3)
 			break;
-		list = list->prev;
+		list = list->next;
 		i++;
 	}
 }

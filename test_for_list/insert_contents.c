@@ -56,17 +56,18 @@ t_list	*put_setinel(t_list **lst, t_list *new)
 	return NULL;
 }
 
-t_list	*ft_lstnew_2(void *value)
+t_list	*ft_lstnew(void *value)
 {
 	t_list *lst_new;
 
 	if (!(lst_new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
 	lst_new->value = value;
+	lst_new->next = NULL;
 	return (lst_new);
 }
 
-void	ft_lstadd_back_2(t_list **lst, t_list *new)
+void	ft_lstadd_nilback(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 	t_list	*nil;
@@ -81,50 +82,29 @@ void	ft_lstadd_back_2(t_list **lst, t_list *new)
 		nil = put_setinel(lst, make_sentinel());
 		*lst = nil;
 	}
-
-		(*lst) = ft_lstlast(*lst);
-		tmp = *lst;
-		(*lst)->next = new;
-		new->prev = (*lst);
-		new->next = nil;
-		nil->prev = new;
-
+	(*lst) = ft_lstlast(*lst);
+	tmp = *lst;
+	(*lst)->next = new;
+	new->prev = (*lst);
+	new->next = nil;
+	nil->prev = new;
 }
 
 int main(int argc, char *argv[])
 {
 	int i = 1;
-	t_list *list;
+	t_list *lst;
 
-	// ft_lstadd_back_2(&list, ft_lstnew_2(check_num_value(argv[i])));
 	while (i < argc)
 	{
-		ft_lstadd_back_2(&list, ft_lstnew_2(check_num_value(argv[i])));
+		ft_lstadd_nilback(&lst, ft_lstnew(check_num_value(argv[i])));
 		i++;
 	}
 
-	print_circulatio_2nd(list);
+	print_circulatio_2nd(lst);
 	// print_circulatio(list);
 	// print_content(list);
 
 
-	printf("\n\n%d\n", count_list(list));
+	printf("\n\n%d\n", count_list(lst));
 }
-
-
-// int main(int argc, char *argv[])
-// {
-// 	int i = 1;
-// 	t_list *list;
-// 	t_list *nil;
-
-// 	nil = put_setinel(&list, make_sentinel());
-// 	while (i < argc)
-// 	{
-// 		ft_lstadd_back_2(&list, ft_lstnew_2(argv[i], nil), nil);
-// 		i++;
-// 	}
-
-// 	// print_circulatio(list);
-// 	print_content(list);
-// }

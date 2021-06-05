@@ -16,34 +16,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-
-
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*tmp;
-
-	if (!lst)
-	{
-		lst = &new;
-		return ;
-	}
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	tmp = ft_lstlast(*lst);
-	tmp->next = new;
-}
-
-t_list	*ft_lstnew(void *value)
-{
-	t_list *lst_new;
-
-	if (!(lst_new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	lst_new->value = value;
-	lst_new->next = NULL;
-	return (lst_new);
-}
