@@ -69,7 +69,6 @@ t_list	*ft_lstnew(void *value)
 
 void	ft_lstadd_nilback(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
 	t_list	*nil;
 
 	if (!lst)
@@ -82,8 +81,9 @@ void	ft_lstadd_nilback(t_list **lst, t_list *new)
 		nil = put_setinel(lst, make_sentinel());
 		*lst = nil;
 	}
+	catch_nil(lst);
+	nil = *lst;
 	(*lst) = ft_lstlast(*lst);
-	tmp = *lst;
 	(*lst)->next = new;
 	new->prev = (*lst);
 	new->next = nil;
@@ -93,18 +93,20 @@ void	ft_lstadd_nilback(t_list **lst, t_list *new)
 int main(int argc, char *argv[])
 {
 	int i = 1;
-	t_list *lst;
+	t_list *lst_a;
+	// t_list *lst_b;
 
 	while (i < argc)
 	{
-		ft_lstadd_nilback(&lst, ft_lstnew(check_num_value(argv[i])));
+		ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(argv[i])));
 		i++;
 	}
 
-	print_circulatio_2nd(lst);
+	print_circulatio_2nd(lst_a);
 	// print_circulatio(list);
 	// print_content(list);
+	// print_2stacks(lst_a, lst_b);
 
 
-	printf("\n\n%d\n", count_list(lst));
+	// printf("\n\n%d\n", count_list(lst_a));
 }

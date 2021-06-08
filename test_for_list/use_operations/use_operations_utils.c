@@ -15,7 +15,8 @@ void	catch_top(t_list **lst)
 void	catch_2nd_top(t_list **lst)
 {
 	catch_top(lst);
-	*lst = (*lst)->next;
+	if (!(count_list(*lst) <= 1))
+		*lst = (*lst)->next;
 }
 
 void	catch_bottom(t_list **lst)

@@ -22,6 +22,7 @@ void	print_content(t_list *list);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	print_circulatio(t_list *list);
 void	print_circulatio_2nd(t_list *list);
+void	print_2stacks(t_list *lst_a, t_list *lst_b);
 
 
 #endif

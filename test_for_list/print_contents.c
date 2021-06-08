@@ -15,6 +15,35 @@ int	check_nil(char *str)
 	return (1);
 }
 
+void	joudge_empty(t_list **lst)
+{
+	if (!*lst || !lst)
+		printf("Empty\n");
+}
+
+
+void	print_2stacks(t_list *lst_a, t_list *lst_b)
+{
+	push_b_operation(&lst_a, &lst_b);
+	// push_b_operation(&lst_a, &lst_b);
+	// push_b_operation(&lst_a, &lst_b);
+	// push_b_operation(&lst_a, &lst_b);
+	// push_b_operation(&lst_a, &lst_b);
+
+	push_a_operation(&lst_a, &lst_b);
+	// push_a_operation(&lst_a, &lst_b);
+	// push_a_operation(&lst_a, &lst_b);
+	// push_a_operation(&lst_a, &lst_b);
+
+	printf("\n");
+	printf("---------------[a]\n");
+	print_circulatio_2nd(lst_a);
+	printf("\n");
+	printf("---------------[b]\n");
+	print_circulatio_2nd(lst_b);
+	printf("--------------------------------------------\n");
+	printf("\n\n");
+}
 
 void	print_circulatio_2nd(t_list *list)
 {
@@ -25,19 +54,19 @@ void	print_circulatio_2nd(t_list *list)
 	// 	list = list->next;
 	// list = list->next;
 
-	// swap_operation(&list);
+	swap_operation(&list);
 	// rotate_operation(&list);
-	reverse_rotate_operation(&list);
 	catch_top(&list);
 	// catch_2nd_top(&list);
 	// catch_bottom(&list);
-	printf("\n\n");
+
+	joudge_empty(&list);
 	while(list)
 	{
 		printf("%d %s\n",i , list->value);
 		if (check_nil(list->value) == 0)
 			j++;
-		if (j >= 3)
+		if (j >= 2)
 			break;
 		list = list->next;
 		i++;
