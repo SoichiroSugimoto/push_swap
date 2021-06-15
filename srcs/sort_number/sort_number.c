@@ -6,4 +6,5 @@ void	sort_number(t_list **lst_a, t_list **lst_b)
 
 	num = count_list(*lst_a);
 	if (num <= 3)
+		under3_sort(lst_a);
 }

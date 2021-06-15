@@ -1,19 +1,16 @@
-#include "test_for_list.h"
-#include "use_operations/use_operations.h"
+#include "insert_contents.h"
+#include "../use_operations/use_operations.h"
+#include "../sort_number/sort_number.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-
-int	check_nil(char *str)
-{
-	if (!(strcmp(str,"nil")))
-	{
-		// printf("nil");
-		return (0) ;
-	}
-	return (1);
-}
+// int	check_nil(char *str)
+// {
+// 	if (!(strcmp(str,"nil")))
+// 		return (0) ;
+// 	return (1);
+// }
 
 void	joudge_empty(t_list **lst)
 {
@@ -24,13 +21,13 @@ void	joudge_empty(t_list **lst)
 
 void	print_2stacks(t_list *lst_a, t_list *lst_b)
 {
-	push_b_operation(&lst_a, &lst_b);
+	push_b(&lst_a, &lst_b);
 	// push_b_operation(&lst_a, &lst_b);
 	// push_b_operation(&lst_a, &lst_b);
 	// push_b_operation(&lst_a, &lst_b);
 	// push_b_operation(&lst_a, &lst_b);
 
-	push_a_operation(&lst_a, &lst_b);
+	push_a(&lst_a, &lst_b);
 	// push_a_operation(&lst_a, &lst_b);
 	// push_a_operation(&lst_a, &lst_b);
 	// push_a_operation(&lst_a, &lst_b);
@@ -50,20 +47,11 @@ void	print_circulatio_2nd(t_list *list)
 	int i = 0;
 	int j = 0;
 
-	// while ((strcmp(list->value,"nil")))
-	// 	list = list->next;
-	// list = list->next;
-
-	swap_operation(&list);
-	// rotate_operation(&list);
 	catch_top(&list);
-	// catch_2nd_top(&list);
-	// catch_bottom(&list);
-
 	joudge_empty(&list);
 	while(list)
 	{
-		printf("%d %s\n",i , list->value);
+		printf("[%d]  %s\n",i , list->value);
 		if (check_nil(list->value) == 0)
 			j++;
 		if (j >= 2)

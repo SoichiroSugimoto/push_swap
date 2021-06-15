@@ -1,4 +1,4 @@
-#include "test_for_list.h"
+#include "utils.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -14,5 +14,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		st1++;
 		st2++;
 	}
-	return (0);
+	return (MATCH);
 }

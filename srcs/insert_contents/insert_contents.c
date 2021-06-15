@@ -1,5 +1,7 @@
-#include "test_for_list.h"
-#include "use_operations/use_operations.h"
+#include "insert_contents.h"
+#include "../use_operations/use_operations.h"
+#include "../sort_number/sort_number.h"
+#include "../utils/utils.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -62,6 +64,8 @@ t_list	*ft_lstnew(void *value)
 
 	if (!(lst_new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
+	// printf("value  ----> %s\n", value);
+	// printf("num :value  ----> %d\n", ft_atoi(value));
 	lst_new->value = value;
 	lst_new->next = NULL;
 	return (lst_new);
@@ -102,6 +106,9 @@ int main(int argc, char *argv[])
 		i++;
 	}
 
+	print_circulatio_2nd(lst_a);
+	under3_sort(&lst_a);
+	printf("\n\n");
 	print_circulatio_2nd(lst_a);
 	// print_circulatio(list);
 	// print_content(list);
