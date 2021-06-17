@@ -15,6 +15,7 @@ int		confirm_sort_3num(t_list *lst);
 void	sort_3num(t_list **lst);
 void	sort_2num(t_list **lst);
 void	under3_sort(t_list **lst);
+void	under6_sort(t_list **lst_a, t_list **lst_b);
 void	sort_number(t_list **lst_a, t_list **lst_b);
 
 #endif

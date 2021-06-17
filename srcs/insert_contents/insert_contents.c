@@ -12,7 +12,7 @@ char	*check_num_value(char *str)
 	i = 0;
 	while(str[i])
 	{
-		if (!(48 <= str[i] && str[i] <= 57))
+		if (!((48 <= str[i] && str[i] <= 57) || str[i] == 45))
 		{
 			printf("Error\n");
 			exit (0);
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 {
 	int i = 1;
 	t_list *lst_a;
-	// t_list *lst_b;
+	t_list *lst_b;
 
 	while (i < argc)
 	{
@@ -107,13 +107,7 @@ int main(int argc, char *argv[])
 	}
 
 	print_circulatio_2nd(lst_a);
-	under3_sort(&lst_a);
+	sort_number(&lst_a, &lst_b);
 	printf("\n\n");
 	print_circulatio_2nd(lst_a);
-	// print_circulatio(list);
-	// print_content(list);
-	// print_2stacks(lst_a, lst_b);
-
-
-	// printf("\n\n%d\n", count_list(lst_a));
 }

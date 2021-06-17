@@ -23,9 +23,9 @@ int		get_lstmin(t_list *lst)
 	res = ft_atoi(lst->value);
 	while(check_nil(lst->value) != 0)
 	{
-		lst = lst->next;
 		if (res > ft_atoi(lst->value))
 			res = ft_atoi(lst->value);
+		lst = lst->next;
 	}
 	return (res);
 }

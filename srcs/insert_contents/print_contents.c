@@ -21,17 +21,6 @@ void	joudge_empty(t_list **lst)
 
 void	print_2stacks(t_list *lst_a, t_list *lst_b)
 {
-	push_b(&lst_a, &lst_b);
-	// push_b_operation(&lst_a, &lst_b);
-	// push_b_operation(&lst_a, &lst_b);
-	// push_b_operation(&lst_a, &lst_b);
-	// push_b_operation(&lst_a, &lst_b);
-
-	push_a(&lst_a, &lst_b);
-	// push_a_operation(&lst_a, &lst_b);
-	// push_a_operation(&lst_a, &lst_b);
-	// push_a_operation(&lst_a, &lst_b);
-
 	printf("\n");
 	printf("---------------[a]\n");
 	print_circulatio_2nd(lst_a);
