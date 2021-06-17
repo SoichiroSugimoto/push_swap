@@ -3,13 +3,16 @@
 
 # include <string.h>
 # include <stdlib.h>
-#include "../insert_contents/insert_contents.h"
-#include "../use_operations/use_operations.h"
+# include "../insert_contents/insert_contents.h"
+# include "../use_operations/use_operations.h"
 # include "../utils/utils.h"
+
+#define DONE 0
 
 int		get_lstmin(t_list *lst);
 int		get_lstmedian(t_list *lst);
 int		get_lstmax(t_list *lst);
+int		confirm_sorted(t_list *lst);
 int		confirm_sort_3num(t_list *lst);
 void	sort_3num(t_list **lst);
 void	sort_2num(t_list **lst);
@@ -21,5 +24,6 @@ void	quick_sort (int array[], int left, int right);
 void	lst_to_array(t_list *lst, int array[]);
 int		get_median(t_list *lst);
 void	sort_number(t_list **lst_a, t_list **lst_b);
+void	over7_sort(t_list **lst_a, t_list **lst_b);
 
 #endif

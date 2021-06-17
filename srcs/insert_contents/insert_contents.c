@@ -105,8 +105,8 @@ int main(int argc, char *argv[])
 		ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(argv[i])));
 		i++;
 	}
-	int med = get_median(lst_a);
-	printf("med %d\n", med);
+	int n = confirm_sorted(lst_a);
+	printf("check: %d\n", n);
 
 	// print_circulatio_2nd(lst_a);
 	// sort_number(&lst_a, &lst_b);
