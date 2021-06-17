@@ -98,16 +98,18 @@ int main(int argc, char *argv[])
 {
 	int i = 1;
 	t_list *lst_a;
-	t_list *lst_b;
+	// t_list *lst_b;
 
 	while (i < argc)
 	{
 		ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(argv[i])));
 		i++;
 	}
+	int med = get_median(lst_a);
+	printf("med %d\n", med);
 
-	print_circulatio_2nd(lst_a);
-	sort_number(&lst_a, &lst_b);
-	printf("\n\n");
-	print_circulatio_2nd(lst_a);
+	// print_circulatio_2nd(lst_a);
+	// sort_number(&lst_a, &lst_b);
+	// printf("\n\n");
+	// print_circulatio_2nd(lst_a);
 }

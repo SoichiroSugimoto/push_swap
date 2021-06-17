@@ -29,10 +29,3 @@ int		get_lstmin(t_list *lst)
 	}
 	return (res);
 }
-
-// int		get_lstmedian(t_list *lst)
-// {
-// 	int res;
-
-// 	catch_top(&res);
-// }

@@ -7,7 +7,6 @@
 #include "../use_operations/use_operations.h"
 # include "../utils/utils.h"
 
-// int		ft_atoi(const char *str);
 int		get_lstmin(t_list *lst);
 int		get_lstmedian(t_list *lst);
 int		get_lstmax(t_list *lst);
@@ -16,6 +15,11 @@ void	sort_3num(t_list **lst);
 void	sort_2num(t_list **lst);
 void	under3_sort(t_list **lst);
 void	under6_sort(t_list **lst_a, t_list **lst_b);
+void	swap(int *x, int *y);
+int		partition(int array[], int left, int right);
+void	quick_sort (int array[], int left, int right);
+void	lst_to_array(t_list *lst, int array[]);
+int		get_median(t_list *lst);
 void	sort_number(t_list **lst_a, t_list **lst_b);
 
 #endif
