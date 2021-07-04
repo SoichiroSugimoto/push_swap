@@ -35,7 +35,6 @@ int		partition(int array[], int left, int right)
 void	quick_sort (int array[], int left, int right)
 {
 	int piv;
-
 	if (left < right)
 	{
 		piv = partition(array, left, right);
@@ -62,14 +61,38 @@ int		get_median(t_list *lst)
 {
 	int vol;
 	int i;
-	int num[vol];
+	int num[count_list(lst)];
 
 	i = 0;
-	lst_to_array(lst, num);
 	vol = count_list(lst);
-	quick_sort(num, 0, vol);
+	lst_to_array(lst, num);
+	quick_sort(num, 0, vol - 1);
 	if (vol % 2 == 0)
 		return (num[vol / 2]);
 	else
 		return (num[(vol + 1) / 2]);
 }
+
+// int 	main(int argc, char *argv[])
+// {
+// 	int i = 0;
+// 	int num[argc - 1];
+// 	printf("---%d\n", argc - 1);
+// 	printf("bbbbbbbb\n\n");
+// 	printf("last  %d\n", atoi(argv[argc - 1]));
+// 	while(i <= argc - 2)
+// 	{
+// 		num[i] = atoi(argv[i + 1]);
+// 		printf("[%d]  %d\n", i, num[i]);
+// 		i++;
+// 	}
+// 	printf("aaaaaaaaaa\n\n");
+// 	quick_sort(num, 0, argc - 2);
+// 	i = 0;
+// 	printf("median = %d\n\n", get_median(num, argc - 1));
+// 	while(i <= argc - 2)
+// 	{
+// 		printf("[%d]  %d\n", i, num[i]);
+// 		i++;
+// 	}
+// }

@@ -1,4 +1,5 @@
 #include "sort_number.h"
+#include <stdio.h>
 
 void	sort_number(t_list **lst_a, t_list **lst_b)
 {
@@ -7,8 +8,8 @@ void	sort_number(t_list **lst_a, t_list **lst_b)
 	num = count_list(*lst_a);
 	if (num <= 3)
 		under3_sort(lst_a);
-	if (4 <= num && num <= 6)
+	else if (4 <= num && num <= 6)
 		under6_sort(lst_a, lst_b);
-	if (7 <= num)
+	else
 		over7_sort(lst_a, lst_b);
 }
