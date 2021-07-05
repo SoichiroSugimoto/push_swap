@@ -57,6 +57,19 @@ void	lst_to_array(t_list *lst, int array[])
 	}
 }
 
+void	print_array(int num[], int vol)
+{
+	int i = 0;
+
+	printf("print_array\n");
+	while (i <= vol - 1)
+	{
+		printf("[%d] %d\n", i, num[i]);
+		i++;
+	}
+	printf("----------\n");
+}
+
 int		get_median(t_list *lst)
 {
 	int vol;
@@ -67,10 +80,12 @@ int		get_median(t_list *lst)
 	vol = count_list(lst);
 	lst_to_array(lst, num);
 	quick_sort(num, 0, vol - 1);
+	// print_array(num, vol);
+	// printf("vol: %d\n", vol);
 	if (vol % 2 == 0)
-		return (num[vol / 2]);
+		return (num[(vol - 1) / 2]);
 	else
-		return (num[(vol + 1) / 2]);
+		return (num[vol / 2]);
 }
 
 // int 	main(int argc, char *argv[])
