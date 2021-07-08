@@ -62,6 +62,11 @@ void	over7_sort_2nd(t_list **lst_a, t_list **lst_b)
 	// printf("count_list(*lst_a) - pos: %d\n", count_list(*lst_a) - pos);
 	// exit(1);
 	catch_top(lst_a);
+	while (0 < pos && pos <= 3)
+	{
+		push_b(lst_a, lst_b);
+		pos--;
+	}
 	// not_sorted(*lst_a)の値はbottomに大きく依存しているので、raによって大幅な変動が行われる。
 	while (not_sorted(*lst_a) + cnt > rest_num)
 	{
@@ -107,6 +112,8 @@ void	over7_sort_2nd(t_list **lst_a, t_list **lst_b)
 
 	// (4)sort number under 3
 	under3_sort(lst_b);
+	printf("[b][b][b][b][b][b][b][b][b][b][b][b][b][b][b]\n");
+	print_circulatio_2nd(*lst_b);
 
 	// (5)push_a & rotate_a
 	lst_cnt = count_list(*lst_b);
@@ -178,7 +185,7 @@ void	over7_sort(t_list **lst_a, t_list **lst_b)
 	over7_sort_2nd(lst_a, lst_b);
 	printf("4th rap ]■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 	over7_sort_2nd(lst_a, lst_b);
-	// printf("5th rap ]■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-	// over7_sort_2nd(lst_a, lst_b);
+	printf("5th rap ]■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+	over7_sort_2nd(lst_a, lst_b);
 	// print_2stacks(*lst_a, *lst_b);
 }

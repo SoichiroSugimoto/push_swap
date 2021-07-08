@@ -57,18 +57,18 @@ void	lst_to_array(t_list *lst, int array[])
 	}
 }
 
-void	print_array(int num[], int vol)
-{
-	int i = 0;
+// void	print_array(int num[], int vol)
+// {
+// 	int i = 0;
 
-	printf("print_array\n");
-	while (i <= vol - 1)
-	{
-		printf("[%d] %d\n", i, num[i]);
-		i++;
-	}
-	printf("----------\n");
-}
+// 	printf("print_array\n");
+// 	while (i <= vol - 1)
+// 	{
+// 		printf("[%d] %d\n", i, num[i]);
+// 		i++;
+// 	}
+// 	printf("----------\n");
+// }
 
 int		get_median(t_list *lst)
 {

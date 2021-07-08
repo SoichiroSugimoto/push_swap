@@ -31,6 +31,7 @@ void	sort_3num(t_list **lst)
 
 void	sort_2num(t_list **lst)
 {
+	catch_top(lst);
 	if (ft_atoi((*lst)->value) == get_lstmax(*lst))
 		swap_a(lst);
 }

@@ -1,16 +1,21 @@
 #include "sort_number.h"
+#include <stdlib.h>
 #include <stdio.h>
 
-int		min_posit(t_list *lst)
+int		not_sorted(t_list *lst)
 {
 	int min;
 	int res;
 
 	res = 0;
+	min = get_lstmin(lst);
 	catch_top(&lst);
-	while (ft_atoi(lst->value) != min)
+	printf("top ------> %s\n", lst->value);
+	// printf("          min: %d\n", min);
+	while (ft_atoi(lst->value) > min)
 	{
 		lst = lst->next;
+		// printf("-------------<  %d  >\n", ft_atoi(lst->value));
 		res++;
 	}
 	return (res);
@@ -22,9 +27,9 @@ void	lst_to_array_2nd(t_list *lst, int array[])
 	int min;
 
 	i = 0;
-	min = min_posit(lst);
+	min = not_sorted(lst);
 	catch_top(&lst);
-	while (i <= min_posit(lst))
+	while (i <= not_sorted(lst))
 	{
 		array[i] = ft_atoi(lst->value);
 		i++;
@@ -32,18 +37,41 @@ void	lst_to_array_2nd(t_list *lst, int array[])
 	}
 }
 
+void	safe_free(int *num)
+{
+	free(num);
+	num = NULL;
+}
+
+void	print_array(int num[], int vol)
+{
+	int i = 1;
+
+	printf("print_array -----------\n");
+	while (i <= vol)
+	{
+		printf("[%d] %d\n", i, num[i]);
+		i++;
+	}
+	printf("-----------------------\n");
+}
+
 int		get_median_2nd(t_list *lst)
 {
 	int min;
 	int res;
-	// int num[min_posit(lst) + 1];
+	int *num;
 	int n;
 
-	n = min_posit(lst);
-	int num[n];
+	printf("AAAAAAAAAAAAAA\n");
+	print_circulatio_2nd(lst);
+	n = not_sorted(lst);
+	printf("not_sorted: %d\n", n);
+	if (!(num = (int *)malloc(sizeof(int) * (n + 1))))
+		safe_free(num);
 	lst_to_array(lst, num);
 	quick_sort(num, 0, n);
-	/////////////////////////////
+	print_array(num, n);
 	if (n == 0)
 	{
 		printf("n == 0\n");

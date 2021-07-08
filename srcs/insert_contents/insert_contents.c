@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
 {
 	int i = 1;
 	t_list *lst_a;
-	// t_list *lst_b;
+	t_list *lst_b;
 
 	while (i < argc)
 	{
@@ -107,9 +107,15 @@ int main(int argc, char *argv[])
 	}
 	int n = confirm_sorted(lst_a);
 	printf("check: %d\n", n);
+	printf("med: %d\n\n", get_median(lst_a));
+	// exit(1);////////////////////////////////////////////////////////////////////
 
-	// print_circulatio_2nd(lst_a);
-	// sort_number(&lst_a, &lst_b);
-	// printf("\n\n");
-	// print_circulatio_2nd(lst_a);
+	print_circulatio_2nd(lst_a);
+	printf("\n\n");
+	// all_isnil(lst_a);
+	// operation_x(&lst_a, &lst_b);
+	// print_2stacks(lst_a, lst_b);
+	sort_number(&lst_a, &lst_b);
+	printf("\n------- end --------\n\n");
+	print_circulatio_2nd(lst_a);
 }

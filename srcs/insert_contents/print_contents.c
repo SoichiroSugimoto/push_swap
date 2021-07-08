@@ -31,21 +31,46 @@ void	print_2stacks(t_list *lst_a, t_list *lst_b)
 	printf("\n\n");
 }
 
-void	print_circulatio_2nd(t_list *list)
+void	operation_x(t_list **lst_a, t_list **lst_b)
+{
+	push_b(lst_a, lst_b);
+	push_b(lst_a, lst_b);
+	push_b(lst_a, lst_b);
+
+	printf("    ############\n");
+	push_a(lst_a, lst_b);
+	push_a(lst_a, lst_b);
+	push_a(lst_a, lst_b);
+
+	printf("    ############\n");
+	push_b(lst_a, lst_b);
+	push_b(lst_a, lst_b);
+	push_b(lst_a, lst_b);
+
+	printf("    ############\n");
+	push_a(lst_a, lst_b);
+	push_a(lst_a, lst_b);
+	push_a(lst_a, lst_b);
+	push_a(lst_a, lst_b);
+	push_a(lst_a, lst_b);
+	push_a(lst_a, lst_b);
+}
+
+void	print_circulatio_2nd(t_list *lst)
 {
 	int i = 0;
 	int j = 0;
 
-	catch_top(&list);
-	joudge_empty(&list);
-	while(list)
+	catch_top(&lst);
+	joudge_empty(&lst);
+	while(lst)
 	{
-		printf("[%d]  %s\n",i , list->value);
-		if (check_nil(list->value) == 0)
+		printf("[%d]  %s\n",i , lst->value);
+		if (check_nil(lst->value) == 0)
 			j++;
 		if (j >= 2)
 			break;
-		list = list->next;
+		lst = lst->next;
 		i++;
 	}
 }

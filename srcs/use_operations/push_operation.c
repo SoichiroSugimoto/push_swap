@@ -3,14 +3,20 @@
 
 void	push_b(t_list **lst_a, t_list **lst_b)
 {
-	push_operation(lst_a, lst_b);
-	ft_putstr_fd("pb\n", 1);
+	if (all_isnil(*lst_a) != 1)
+	{
+		push_operation(lst_a, lst_b);
+		ft_putstr_fd("pb\n", 1);
+	}
 }
 
 void	push_a(t_list **lst_a, t_list **lst_b)
 {
-	push_operation(lst_b, lst_a);
-	ft_putstr_fd("pa\n", 1);
+	if (all_isnil(*lst_b) != 1)
+	{
+		push_operation(lst_b, lst_a);
+		ft_putstr_fd("pa\n", 1);
+	}
 }
 
 void	push_operation(t_list **lst_a, t_list **lst_b)
@@ -54,8 +60,11 @@ void	ft_lstadd_nilfront(t_list **lst, t_list *new)
 	nil->next = new;
 }
 
-void	delete_nil(t_list *lst)
+int	all_isnil(t_list *lst)
 {
-	if (count_list(lst) == 1)
-		free(&lst);
+	catch_nil(&lst);
+	if (!(check_nil((lst->next)->value)))
+		return (1);
+	else
+		return (0);
 }

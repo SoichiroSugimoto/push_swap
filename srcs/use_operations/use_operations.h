@@ -25,7 +25,7 @@ void	reverse_rotate_a(t_list **lst);
 void	reverse_rotate_b(t_list **lst);
 void	rrr(t_list **lst_a, t_list **lst_b);
 void	ft_lstadd_nilfront(t_list **lst, t_list *new);
-void	delete_nil(t_list *lst);
+int		all_isnil(t_list *lst);
 void	push_operation(t_list **lst_a, t_list **lst_b);
 void	push_b(t_list **lst_a, t_list **lst_b);
 void	push_a(t_list **lst_a, t_list **lst_b);
