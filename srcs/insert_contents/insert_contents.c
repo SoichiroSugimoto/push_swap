@@ -64,8 +64,6 @@ t_list	*ft_lstnew(void *value)
 
 	if (!(lst_new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
-	// printf("value  ----> %s\n", value);
-	// printf("num :value  ----> %d\n", ft_atoi(value));
 	lst_new->value = value;
 	lst_new->next = NULL;
 	return (lst_new);
@@ -92,30 +90,4 @@ void	ft_lstadd_nilback(t_list **lst, t_list *new)
 	new->prev = (*lst);
 	new->next = nil;
 	nil->prev = new;
-}
-
-int main(int argc, char *argv[])
-{
-	int i = 1;
-	t_list *lst_a;
-	t_list *lst_b;
-
-	while (i < argc)
-	{
-		ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(argv[i])));
-		i++;
-	}
-	int n = confirm_sorted(lst_a);
-	printf("check: %d\n", n);
-	printf("med: %d\n\n", get_median(lst_a));
-	// exit(1);////////////////////////////////////////////////////////////////////
-
-	print_circulatio_2nd(lst_a);
-	printf("\n\n");
-	// all_isnil(lst_a);
-	// operation_x(&lst_a, &lst_b);
-	// print_2stacks(lst_a, lst_b);
-	sort_number(&lst_a, &lst_b);
-	printf("\n------- end --------\n\n");
-	print_circulatio_2nd(lst_a);
 }

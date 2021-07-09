@@ -3,6 +3,7 @@
 
 // # include "../use_operations/use_operations.h"
 // # include "../sort_number/sort_number.h"
+// # include "../utils/utils.h"
 # include <string.h>
 # include <stdlib.h>
 
@@ -20,11 +21,5 @@ t_list	*make_sentinel();
 t_list	*put_setinel(t_list **lst, t_list *new);
 t_list	*ft_lstnew(void *value);
 void	ft_lstadd_nilback(t_list **lst, t_list *new);
-void	print_content(t_list *list);
-void	operation_x(t_list **lst_a, t_list **lst_b);
-void	print_circulatio(t_list *list);
-void	print_circulatio_2nd(t_list *list);
-void	print_2stacks(t_list *lst_a, t_list *lst_b);
-
 
 #endif
