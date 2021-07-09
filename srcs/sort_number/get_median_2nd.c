@@ -10,8 +10,6 @@ int		not_sorted(t_list *lst)
 	res = 0;
 	min = get_lstmin(lst);
 	catch_top(&lst);
-	printf("top ------> %s\n", lst->value);
-	// printf("          min: %d\n", min);
 	while (ft_atoi(lst->value) > min)
 	{
 		lst = lst->next;
@@ -63,15 +61,11 @@ int		get_median_2nd(t_list *lst)
 	int *num;
 	int n;
 
-	printf("AAAAAAAAAAAAAA\n");
-	print_circulatio_2nd(lst);
 	n = not_sorted(lst);
-	printf("not_sorted: %d\n", n);
 	if (!(num = (int *)malloc(sizeof(int) * (n + 1))))
 		safe_free(num);
 	lst_to_array(lst, num);
 	quick_sort(num, 0, n);
-	print_array(num, n);
 	if (n == 0)
 	{
 		printf("n == 0\n");
