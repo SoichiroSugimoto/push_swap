@@ -21,8 +21,8 @@ void	ss(t_list **lst_a, t_list **lst_b)
 
 void	swap_operation(t_list **lst)
 {
-	char *tmp;
-	char *tmp2;
+	char	*tmp;
+	char	*tmp2;
 
 	if (count_list(*lst) > 1)
 	{

@@ -6,13 +6,12 @@
 # include "../insert_contents/insert_contents.h"
 # include "../utils/utils.h"
 # include "../deal_with_error/deal_with_error.h"
+# include "../../libft/libft.h"
 
-// void	ft_putstr_fd(char *s, int fd);
 void	catch_nil(t_list **lst);
 void	catch_top(t_list **lst);
 void	catch_2nd_top(t_list **lst);
 void	catch_bottom(t_list **lst);
-int		count_list(t_list *lst);
 void	swap_operation(t_list **lst);
 void	swap_a(t_list **lst);
 void	swap_b(t_list **lst);

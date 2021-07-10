@@ -4,7 +4,7 @@
 #include "use_operations/use_operations.h"
 #include "utils/utils.h"
 #include "deal_with_error/deal_with_error.h"
-
+#include "../libft/libft.h"
 
 void	joudge_empty(t_list **lst)
 {
@@ -14,18 +14,20 @@ void	joudge_empty(t_list **lst)
 
 void	print_circulatio(t_list *lst)
 {
-	int i = 0;
-	int j = 0;
+	int	i;
+	int	j;
 
+	i = 0;
+	j = 0;
 	catch_top(&lst);
 	joudge_empty(&lst);
-	while(lst)
+	while (lst)
 	{
 		printf("[%d]  %s\n",i , lst->value);
 		if (check_nil(lst->value) == 0)
 			j++;
 		if (j >= 2)
-			break;
+			break ;
 		lst = lst->next;
 		i++;
 	}
@@ -43,12 +45,13 @@ void	print_2stacks(t_list *lst_a, t_list *lst_b)
 	printf("\n\n");
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	int i = 1;
-	t_list *lst_a;
-	t_list *lst_b;
+	int		i;
+	t_list	*lst_a;
+	t_list	*lst_b;
 
+	i = 1;
 	while (i < argc)
 	{
 		if (ft_strlen(argv[i]) >= 10)
@@ -56,15 +59,8 @@ int main(int argc, char *argv[])
 		ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(argv[i])));
 		i++;
 	}
-	int n = confirm_sorted(lst_a);
-	printf("check: %d\n", n);
-	printf("med: %d\n\n", get_median(lst_a));
-
-	print_circulatio(lst_a);
-	printf("\n\n");
-
-	exit(0);
-	sort_number(&lst_a, &lst_b);
+	if (count_list(lst_a) >= 2 && confirm_sorted(lst_a) != 1)
+		sort_number(&lst_a, &lst_b);
 	printf("\n------- end --------\n\n");
 	print_circulatio(lst_a);
 }

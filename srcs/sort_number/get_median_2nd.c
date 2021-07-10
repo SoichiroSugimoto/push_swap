@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int		not_sorted(t_list *lst)
+int	not_sorted(t_list *lst)
 {
-	int min;
-	int res;
+	int	min;
+	int	res;
 
 	res = 0;
 	min = get_lstmin(lst);
@@ -13,7 +13,6 @@ int		not_sorted(t_list *lst)
 	while (ft_atoi(lst->value) > min)
 	{
 		lst = lst->next;
-		// printf("-------------<  %d  >\n", ft_atoi(lst->value));
 		res++;
 	}
 	return (res);
@@ -21,8 +20,8 @@ int		not_sorted(t_list *lst)
 
 void	lst_to_array_2nd(t_list *lst, int array[])
 {
-	int i;
-	int min;
+	int	i;
+	int	min;
 
 	i = 0;
 	min = not_sorted(lst);
@@ -41,25 +40,12 @@ void	safe_free(int *num)
 	num = NULL;
 }
 
-void	print_array(int num[], int vol)
+int	get_median_2nd(t_list *lst)
 {
-	int i = 1;
-
-	printf("print_array -----------\n");
-	while (i <= vol)
-	{
-		printf("[%d] %d\n", i, num[i]);
-		i++;
-	}
-	printf("-----------------------\n");
-}
-
-int		get_median_2nd(t_list *lst)
-{
-	int min;
-	int res;
-	int *num;
-	int n;
+	int	min;
+	int	res;
+	int	*num;
+	int	n;
 
 	n = not_sorted(lst);
 	if (!(num = (int *)malloc(sizeof(int) * (n + 1))))

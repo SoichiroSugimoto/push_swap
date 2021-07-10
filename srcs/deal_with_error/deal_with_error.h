@@ -6,6 +6,7 @@
 # include "../insert_contents/insert_contents.h"
 # include "../use_operations/use_operations.h"
 # include "../utils/utils.h"
+# include "../../libft/libft.h"
 
 char	*check_num_value(char *str);
 void	check_duplication(int num1, int num2);

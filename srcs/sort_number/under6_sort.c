@@ -4,7 +4,7 @@
 
 void	under6_sort(t_list **lst_a, t_list **lst_b)
 {
-	while(count_list(*lst_a) > 3)
+	while (count_list(*lst_a) > 3)
 	{
 		catch_top(lst_a);
 		if (ft_atoi((*lst_a)->value) == get_lstmin(*lst_a))

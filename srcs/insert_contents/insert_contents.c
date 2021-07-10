@@ -3,6 +3,7 @@
 #include "../sort_number/sort_number.h"
 #include "../utils/utils.h"
 #include "../deal_with_error/deal_with_error.h"
+#include "../../libft/libft.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -15,9 +16,9 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-t_list	*make_sentinel()
+t_list	*make_sentinel(void)
 {
-	t_list *lst_new;
+	t_list	*lst_new;
 
 	if (!(lst_new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
@@ -32,19 +33,19 @@ t_list	*put_setinel(t_list **lst, t_list *new)
 	if (!lst)
 	{
 		lst = &new;
-		return NULL;
+		return (NULL);
 	}
 	if (!*lst)
 	{
 		*lst = new;
 		return (new);
 	}
-	return NULL;
+	return (NULL);
 }
 
 t_list	*ft_lstnew(void *value)
 {
-	t_list *lst_new;
+	t_list	*lst_new;
 
 	if (!(lst_new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);

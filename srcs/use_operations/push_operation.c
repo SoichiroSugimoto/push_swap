@@ -21,8 +21,8 @@ void	push_a(t_list **lst_a, t_list **lst_b)
 
 void	push_operation(t_list **lst_a, t_list **lst_b)
 {
-	t_list *nil_a;
-	t_list *top_a;
+	t_list	*nil_a;
+	t_list	*top_a;
 
 	catch_top(lst_a);
 	top_a = *lst_a;

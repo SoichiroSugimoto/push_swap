@@ -21,7 +21,7 @@ void	rrr(t_list **lst_a, t_list **lst_b)
 
 void	reverse_rotate_operation(t_list **lst)
 {
-	t_list *nil;
+	t_list	*nil;
 
 	catch_nil(lst);
 	nil = *lst;

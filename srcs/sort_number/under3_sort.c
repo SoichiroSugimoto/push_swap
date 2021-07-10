@@ -2,19 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int		confirm_sort_3num(t_list *lst)
+int	confirm_sort_3num(t_list *lst)
 {
-	catch_top(&lst);
-	int first;
-	int second;
-	int third;
+	int	first;
+	int	second;
+	int	third;
 
+	catch_top(&lst);
 	first = ft_atoi(lst->value);
 	second = ft_atoi((lst->next)->value);
 	third = ft_atoi(((lst->next)->next)->value);
 	if (first < second && second < third)
 		return (1);
-	return(0);
+	return (0);
 }
 
 void	sort_3num(t_list **lst)
