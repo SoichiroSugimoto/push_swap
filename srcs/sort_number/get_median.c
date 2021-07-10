@@ -21,6 +21,8 @@ int		partition(int array[], int left, int right)
 	piv = left;
 	while(i < j)
 	{
+		// check_duplication(array[piv], array[i]);
+		check_duplication(array[piv], array[j]);
 		while(array[i] < array[piv])
 			i++;
 		while(array[piv] < array[j])

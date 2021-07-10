@@ -15,7 +15,6 @@ typedef struct		s_list
 }					t_list;
 
 int		check_nil(char *str);
-char	*check_num_value(char *str);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*make_sentinel();
 t_list	*put_setinel(t_list **lst, t_list *new);

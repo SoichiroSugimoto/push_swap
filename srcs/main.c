@@ -3,6 +3,7 @@
 #include "sort_number/sort_number.h"
 #include "use_operations/use_operations.h"
 #include "utils/utils.h"
+#include "deal_with_error/deal_with_error.h"
 
 
 void	joudge_empty(t_list **lst)
@@ -50,6 +51,8 @@ int main(int argc, char *argv[])
 
 	while (i < argc)
 	{
+		if (ft_strlen(argv[i]) >= 10)
+			check_intrange(ft_atoi(argv[i]));
 		ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(argv[i])));
 		i++;
 	}
@@ -59,9 +62,8 @@ int main(int argc, char *argv[])
 
 	print_circulatio(lst_a);
 	printf("\n\n");
-	// all_isnil(lst_a);
-	// operation_x(&lst_a, &lst_b);
-	// print_2stacks(lst_a, lst_b);
+
+	exit(0);
 	sort_number(&lst_a, &lst_b);
 	printf("\n------- end --------\n\n");
 	print_circulatio(lst_a);

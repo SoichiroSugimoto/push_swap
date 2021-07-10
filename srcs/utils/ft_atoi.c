@@ -1,6 +1,6 @@
 #include "utils.h"
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	long long	res;
 	int			i;

@@ -5,6 +5,7 @@
 # include <stdlib.h>
 # include "../insert_contents/insert_contents.h"
 # include "../utils/utils.h"
+# include "../deal_with_error/deal_with_error.h"
 
 // void	ft_putstr_fd(char *s, int fd);
 void	catch_nil(t_list **lst);

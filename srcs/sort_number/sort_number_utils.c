@@ -49,8 +49,8 @@ int		confirm_sorted(t_list *lst)
 			return (0);
 		if (ft_atoi(lst->value) == ft_atoi((lst->next)->value))
 		{
-			ft_putstr_fd("DUPLICATION of Numbers\n", 1);
-			return (0);
+			ft_putstr_fd("Error: some arguments are duplicated.\n", 1);
+			exit (0);
 		}
 		lst = lst->next;
 	}

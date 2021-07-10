@@ -6,6 +6,7 @@
 # include "../insert_contents/insert_contents.h"
 # include "../use_operations/use_operations.h"
 # include "../utils/utils.h"
+# include "../deal_with_error/deal_with_error.h"
 
 #define DONE 1
 

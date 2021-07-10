@@ -9,10 +9,11 @@
 
 # define MATCH 0
 
-int		check_nil(char *str);
-int		count_list(t_list *lst);
-int		ft_atoi(const char *str);
-void	ft_putstr_fd(char *s, int fd);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int				check_nil(char *str);
+int				count_list(t_list *lst);
+long long		ft_atoi(const char *str);
+void			ft_putstr_fd(char *s, int fd);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
+int				ft_strlen(const char *s);
 
 #endif

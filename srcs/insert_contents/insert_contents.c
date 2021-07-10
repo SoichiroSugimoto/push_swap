@@ -2,25 +2,9 @@
 #include "../use_operations/use_operations.h"
 #include "../sort_number/sort_number.h"
 #include "../utils/utils.h"
+#include "../deal_with_error/deal_with_error.h"
 #include <stdio.h>
 #include <string.h>
-
-char	*check_num_value(char *str)
-{
-	int i;
-
-	i = 0;
-	while(str[i])
-	{
-		if (!((48 <= str[i] && str[i] <= 57) || str[i] == 45))
-		{
-			printf("Error\n");
-			exit (0);
-		}
-		i++;
-	}
-	return (str);
-}
 
 t_list	*ft_lstlast(t_list *lst)
 {
