@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include "insert_contents/insert_contents.h"
-#include "sort_number/sort_number.h"
-#include "use_operations/use_operations.h"
-#include "utils/utils.h"
-#include "deal_with_error/deal_with_error.h"
+#include "../include/insert_contents.h"
+#include "../include/sort_number.h"
+#include "../include/use_operations.h"
+#include "../include/utils.h"
 #include "../libft/libft.h"
 
 void	joudge_empty(t_list **lst)
