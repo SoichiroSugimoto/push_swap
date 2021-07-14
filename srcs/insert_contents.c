@@ -19,8 +19,8 @@ t_list	*make_sentinel(void)
 {
 	t_list	*lst_new;
 
-	if (!(lst_new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
+	lst_new = (t_list *)malloc(sizeof(t_list));
+	malloc_error(lst_new);
 	lst_new->value = "nil";
 	lst_new->next = lst_new;
 	lst_new->prev = lst_new;
@@ -46,8 +46,8 @@ t_list	*ft_lstnew(void *value)
 {
 	t_list	*lst_new;
 
-	if (!(lst_new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
+	lst_new = (t_list *)malloc(sizeof(t_list));
+	malloc_error(lst_new);
 	lst_new->value = value;
 	lst_new->next = NULL;
 	return (lst_new);

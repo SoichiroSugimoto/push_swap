@@ -47,6 +47,7 @@ int	get_median_2nd(t_list *lst)
 
 	n = not_sorted(lst);
 	num = (int *)malloc(sizeof(int) * (n + 1));
+	malloc_error(num);
 	lst_to_array_2nd(lst, num);
 	quick_sort(num, 0, n);
 	if (n % 2 == 0)

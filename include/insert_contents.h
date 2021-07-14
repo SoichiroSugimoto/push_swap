@@ -17,5 +17,6 @@ t_list				*make_sentinel(void);
 t_list				*put_setinel(t_list **lst, t_list *new);
 t_list				*ft_lstnew(void *value);
 void				ft_lstadd_nilback(t_list **lst, t_list *new);
+void				malloc_error(void *point);
 
 #endif

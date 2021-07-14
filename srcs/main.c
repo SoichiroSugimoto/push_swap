@@ -5,6 +5,18 @@
 #include "../include/utils.h"
 #include "../libft/libft.h"
 
+void	malloc_error(void *point)
+{
+	char	*txt;
+
+	txt = "Error: malloc error\n";
+	if (point == NULL)
+	{
+		ft_putstr_fd(txt, 1);
+		exit (0);
+	}
+}
+
 void	joudge_empty(t_list **lst)
 {
 	if (!*lst || !lst)
