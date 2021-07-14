@@ -58,8 +58,10 @@ int	main(int argc, char *argv[])
 		ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(argv[i])));
 		i++;
 	}
+	printf("cnt: %d\n", count_list(lst_a));
 	if (count_list(lst_a) >= 2 && confirm_sorted(lst_a) != 1)
 		sort_number(&lst_a, &lst_b);
 	printf("\n------- end --------\n\n");
 	print_circulatio(lst_a);
+	system("leaks push_swap");
 }

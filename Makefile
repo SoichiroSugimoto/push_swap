@@ -12,21 +12,11 @@ CC		= gcc
 
 CFLAGS	= -Wall -Wextra -Werror
 
-
-#サフィックスルールに基づいた記述
-#.oファイルが必要になれば.cファイルから作成する
-# .c.o :
-# 	$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $(<:.c=.o)
-
 all : $(NAME)
 
-#コンパイル後に.cファイルの一部を変更した場合、再度コンパイルしようとすれば全ての.cファイルをコンパイルする必要がある
-#.oファイルを使えば二度手間を省ける。
-#必須項目として.oファイル'$(OBJS)'を指定すれば自動生成される。
 $(NAME) : $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) $(LIBFT) -L ./libft -lft
-# cp libft/libft.a push_swap
-# ar rcs $(NAME) $(OBJS)
+	make -C libft
+	$(CC) $(CFLAGS) -g -o $(NAME) $(OBJS) $(LIBFT) -L ./libft -lft
 
 $(LIBFT) :
 	make -C libft

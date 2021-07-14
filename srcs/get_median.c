@@ -62,14 +62,18 @@ int	get_median(t_list *lst)
 {
 	int	vol;
 	int	i;
-	int	num[count_list(lst)];
+	int	*num;
+	int	res;
 
 	i = 0;
 	vol = count_list(lst);
+	num = (int *)malloc(sizeof(int) * vol);
 	lst_to_array(lst, num);
 	quick_sort(num, 0, vol - 1);
 	if (vol % 2 == 0)
-		return (num[(vol - 1) / 2]);
+		res = num[(vol - 1) / 2];
 	else
-		return (num[vol / 2]);
+		res = num[vol / 2];
+	free(num);
+	return (res);
 }
