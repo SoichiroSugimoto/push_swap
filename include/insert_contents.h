@@ -18,5 +18,7 @@ t_list				*put_setinel(t_list **lst, t_list *new);
 t_list				*ft_lstnew(void *value);
 void				ft_lstadd_nilback(t_list **lst, t_list *new);
 void				malloc_error(void *point);
+char				**get_as_atr(char *str);
+void				sort_str_num(char *str, t_list **lst_a, t_list **lst_b);
 
 #endif

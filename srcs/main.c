@@ -63,6 +63,8 @@ int	main(int argc, char *argv[])
 	t_list	*lst_b;
 
 	i = 1;
+	if (argc == 1 && ft_strchr(argv[1], ' '))
+		sort_str_num(argv[1], &lst_a, &lst_b);
 	while (i < argc)
 	{
 		if (ft_strlen(argv[i]) >= 10)
