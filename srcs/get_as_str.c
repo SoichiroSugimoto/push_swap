@@ -76,6 +76,19 @@ void	print_array(char **array, int cnt)
 	}
 }
 
+void	malloc_error_double(char	**str)
+{
+	char	*txt;
+
+	txt = "Error: malloc error\n";
+	if (str == NULL)
+	{
+		ft_putstr_fd(txt, 1);
+		exit (0);
+	}
+}
+
+// split_str_num
 char	**get_as_atr(char *str)
 {
 	int		n;
@@ -86,7 +99,8 @@ char	**get_as_atr(char *str)
 	n = 0;
 	i = 0;
 	n = array_cnt(str);
-	array = (char **)malloc(sizeof(char *) * (n + 1));
+	array = (char **)malloc(sizeof(char *) * n);
+	malloc_error_double(array);
 	while (n >= i + 1 && str)
 	{
 		len = 0;
@@ -95,11 +109,14 @@ char	**get_as_atr(char *str)
 		while (str[len] != ' ')
 			len++;
 		array[i] = (char *)malloc(sizeof(char) * (len + 1));
+		malloc_error(array[i]);
 		ft_strlcpy(array[i], str, len);
+		printf("array[i]: %s\n", array[i]);////////
 		str += len;
 		i++;
 	}
 	array[i] = NULL;
+	printf("array[i]: %s\n", array[i]);////////
 	return (array);
 }
 
@@ -112,6 +129,7 @@ void	sort_str_num(char *str, t_list **lst_a)
 	i = 0;
 	cnt = array_cnt(str);
 	array = get_as_atr(str);
+	printf("array_cnt: %d\n", cnt);
 	while (i < cnt)
 	{
 		if (ft_strlen(array[i]) >= 10)
@@ -119,5 +137,4 @@ void	sort_str_num(char *str, t_list **lst_a)
 		ft_lstadd_nilback(lst_a, ft_lstnew(check_num_value(array[i])));
 		i++;
 	}
-	printf("sort_str_num\n");
 }

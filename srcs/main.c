@@ -63,7 +63,6 @@ int	main(int argc, char *argv[])
 	t_list	*lst_b;
 
 	i = 1;
-	printf("argc: %d\n", argc);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
 		sort_str_num(argv[1], &lst_a);
 	else
@@ -76,7 +75,6 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 	}
-	printf("cnt: %d\n", count_list(lst_a));
 	if (count_list(lst_a) >= 2 && confirm_sorted(lst_a) != 1)
 		sort_number(&lst_a, &lst_b);
 	printf("\n------- end --------\n\n");
