@@ -86,8 +86,6 @@ char	**get_as_atr(char *str)
 	n = 0;
 	i = 0;
 	n = array_cnt(str);
-	printf("str: %s\n", str);
-	printf("array_cnt: %d\n", n);
 	array = (char **)malloc(sizeof(char *) * (n + 1));
 	while (n >= i + 1 && str)
 	{
@@ -105,7 +103,7 @@ char	**get_as_atr(char *str)
 	return (array);
 }
 
-void	sort_str_num(char *str, t_list **lst_a, t_list **lst_b)
+void	sort_str_num(char *str, t_list **lst_a)
 {
 	char	**array;
 	int		cnt;
@@ -121,9 +119,5 @@ void	sort_str_num(char *str, t_list **lst_a, t_list **lst_b)
 		ft_lstadd_nilback(lst_a, ft_lstnew(check_num_value(array[i])));
 		i++;
 	}
-	if (count_list(*lst_a) >= 2 && confirm_sorted(*lst_a) != 1)
-		sort_number(lst_a, lst_b);
-	printf("\n------- end --------\n\n");
-	print_circulatio2(*lst_a);
-	system("leaks push_swap");
+	printf("sort_str_num\n");
 }

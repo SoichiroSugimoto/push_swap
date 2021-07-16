@@ -63,14 +63,18 @@ int	main(int argc, char *argv[])
 	t_list	*lst_b;
 
 	i = 1;
-	if (argc == 1 && ft_strchr(argv[1], ' '))
-		sort_str_num(argv[1], &lst_a, &lst_b);
-	while (i < argc)
+	printf("argc: %d\n", argc);
+	if (argc == 2 && ft_strchr(argv[1], ' '))
+		sort_str_num(argv[1], &lst_a);
+	else
 	{
-		if (ft_strlen(argv[i]) >= 10)
-			check_intrange(ft_atoi(argv[i]));
-		ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(argv[i])));
-		i++;
+		while (i < argc)
+		{
+			if (ft_strlen(argv[i]) >= 10)
+				check_intrange(ft_atoi(argv[i]));
+			ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(argv[i])));
+			i++;
+		}
 	}
 	printf("cnt: %d\n", count_list(lst_a));
 	if (count_list(lst_a) >= 2 && confirm_sorted(lst_a) != 1)
