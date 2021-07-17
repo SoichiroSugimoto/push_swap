@@ -1,5 +1,6 @@
 #include "../include/sort_number.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int	not_sorted(t_list *lst)
 {
@@ -55,5 +56,6 @@ int	get_median_2nd(t_list *lst)
 	else
 		res = num[(n + 1) / 2];
 	free(num);
+	printf("res:  %d\n", res);
 	return (res);
 }

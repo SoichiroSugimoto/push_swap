@@ -69,9 +69,9 @@ void	print_array(char **array, int cnt)
 	int	i;
 
 	i = 0;
-	while (i < cnt)
+	while (i <= cnt)
 	{
-		printf("%s\n", array[i]);
+		printf("             %s\n", array[i]);
 		i++;
 	}
 }
@@ -120,21 +120,35 @@ char	**get_as_atr(char *str)
 	return (array);
 }
 
+// void	all_free(char **str)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		free(str[i]);
+// 		str[i] = NULL;
+// 		i++;
+// 	}
+// }
+
 void	sort_str_num(char *str, t_list **lst_a)
 {
 	char	**array;
-	int		cnt;
 	int		i;
 
 	i = 0;
-	cnt = array_cnt(str);
 	array = get_as_atr(str);
-	printf("array_cnt: %d\n", cnt);
-	while (i < cnt)
+	printf("array_cnt: %d\n", array_cnt(str));
+	print_array(array, array_cnt(str));
+	while (i < array_cnt(str))
 	{
 		if (ft_strlen(array[i]) >= 10)
 			check_intrange(ft_atoi(array[i]));
 		ft_lstadd_nilback(lst_a, ft_lstnew(check_num_value(array[i])));
 		i++;
 	}
+	printf("--------------------------\n");
+	print_circulatio2(*lst_a);
 }
