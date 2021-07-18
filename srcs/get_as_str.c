@@ -99,7 +99,7 @@ char	**get_as_atr(char *str)
 	n = 0;
 	i = 0;
 	n = array_cnt(str);
-	array = (char **)malloc(sizeof(char *) * n);
+	array = (char **)malloc(sizeof(char *) * (n + 1));
 	malloc_error_double(array);
 	while (n >= i + 1 && str)
 	{

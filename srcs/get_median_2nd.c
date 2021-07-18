@@ -56,6 +56,5 @@ int	get_median_2nd(t_list *lst)
 	else
 		res = num[(n + 1) / 2];
 	free(num);
-	printf("res:  %d\n", res);
 	return (res);
 }
