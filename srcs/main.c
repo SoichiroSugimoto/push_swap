@@ -77,7 +77,6 @@ void	lst_all_free(t_list **lst_a)
 		free(*lst_a);
 		*lst_a = (*lst_a)->next;
 	}
-	printf("       *lst_a: %s", (*lst_a)->value);
 	free(*lst_a);
 }
 
@@ -120,4 +119,10 @@ int	main(int argc, char *argv[])
 	print_circulatio(lst_a);
 	lst_all_free(&lst_a);
 	// system("leaks push_swap");
+	// 8 77 34 10 9 1 54 4 7 66 32
+	// ./push_swap 8 77 34 10 9 1 54 4 7 66 44 79 0 17 81 100 62 90 15 200 47 3
+	// ./push_swap 8 77 34 10 9 1 54 4 7 66 44 79 0 17 81 100 62 90 15 200 47 3
+	// ./push_swap 8 77 34 10 9 1 54 4 7 66 44 79 0 17 81 100 62 90 15 200 47
+	// ./push_swap 8 77 34 10 9 1 54 4 7 66 32
+	// ./push_swap 8 77 34 10 9 1 54 4 7 66
 }

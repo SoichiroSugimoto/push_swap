@@ -7,7 +7,18 @@ int	get_rest_num_2nd(t_list *lst)
 	if (not_sorted(lst) % 2 == 0)
 		res = not_sorted(lst) / 2;
 	else
-		res = (not_sorted(lst) + 1) / 2;
+		res = (not_sorted(lst) - 1) / 2;
+	return (res);
+}
+
+int	get_rest_num_3rd(t_list *lst)
+{
+	int	res;
+
+	if (count_list(lst) % 2 == 0)
+		res = count_list(lst) / 2;
+	else
+		res = (count_list(lst) + 1) / 2;
 	return (res);
 }
 
@@ -30,10 +41,30 @@ void	rra_ntimes(t_list **lst_a, int n)
 	}
 }
 
+void	pb_for_leave_2nd(t_list **lst_a, t_list **lst_b)
+{
+	int	med;
+	int	rest_num;
+
+	while (count_list(*lst_b) > 3)
+	{
+		med = get_median(*lst_b);
+		rest_num = get_rest_num_3rd(*lst_b);
+		while (count_list(*lst_b) > rest_num)
+		{
+			catch_top(lst_b);
+			if (ft_atoi((*lst_b)->value) > med)
+				push_a(lst_a, lst_b);
+			else
+				rotate_b(lst_b);
+		}
+	}
+}
+
 void	over7_sort_2nd_2(t_list **lst_a, t_list **lst_b, int n)
 {
 	rra_ntimes(lst_a, n);
-	pb_for_leave(lst_a, lst_b);
+	pb_for_leave_2nd(lst_a, lst_b);
 	under3_sort(lst_b);
 	pa_n_ra(lst_a, lst_b);
 }

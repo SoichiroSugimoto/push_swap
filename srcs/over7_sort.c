@@ -23,7 +23,7 @@ int	get_rest_num(t_list *lst)
 	if (count_list(lst) % 2 == 0)
 		res = count_list(lst) / 2;
 	else
-		res = (count_list(lst) + 1) / 2;
+		res = (count_list(lst) - 1) / 2;
 	return (res);
 }
 
@@ -49,7 +49,9 @@ void	pb_for_leave(t_list **lst_a, t_list **lst_b)
 	{
 		med = get_median(*lst_b);
 		rest_num = get_rest_num(*lst_b);
-		while (count_list(*lst_b) > rest_num)
+		if (count_list(*lst_b) % 2 == 0)
+			rest_num--;
+		while (count_list(*lst_b) > rest_num + 1)
 		{
 			catch_top(lst_b);
 			if (ft_atoi((*lst_b)->value) > med)

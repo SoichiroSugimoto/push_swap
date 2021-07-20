@@ -23,4 +23,7 @@ void				malloc_error(void *point);
 char				**get_as_atr(char *str);
 void				sort_str_num(char *str, t_list **lst_a);
 
+void				print_circulatio(t_list *lst);
+void				print_2stacks(t_list *lst_a, t_list *lst_b);
+
 #endif

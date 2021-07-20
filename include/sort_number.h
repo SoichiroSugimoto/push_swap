@@ -3,6 +3,7 @@
 
 # include <string.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include "insert_contents.h"
 # include "use_operations.h"
 # include "utils.h"
