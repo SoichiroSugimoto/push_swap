@@ -16,6 +16,7 @@ t_list				*ft_lstlast(t_list *lst);
 t_list				*make_sentinel(void);
 t_list				*put_setinel(t_list **lst, t_list *new);
 t_list				*ft_lstnew(void *value);
+void				init_lst(t_list **lst_a, t_list **lst_b);
 void				ft_lstadd_nilback(t_list **lst, t_list *new);
 int					array_cnt(char *str);
 void				print_array(char **array, int cnt);

@@ -16,7 +16,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	make -C libft
-	$(CC) $(CFLAGS) -g -o $(NAME) $(OBJS) $(LIBFT) -L ./libft -lft
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) -L ./libft -lft
 
 $(LIBFT) :
 	make -C libft

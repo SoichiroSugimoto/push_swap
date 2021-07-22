@@ -4,7 +4,7 @@ OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -g -I .
+CFLAGS			= -Wall -Wextra -Werror -I .
 
 NAME			= libft.a
 

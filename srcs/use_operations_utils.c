@@ -2,7 +2,7 @@
 
 void	catch_nil(t_list **lst)
 {
-	while ((*lst)->next && ft_strncmp((*lst)->value, "nil", 3))
+	while (ft_strncmp((*lst)->value, "nil", 3))
 		*lst = (*lst)->next;
 }
 

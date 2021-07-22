@@ -35,5 +35,6 @@ void	over7_sort(t_list **lst_a, t_list **lst_b);
 void	over7_sort_2nd(t_list **lst_a, t_list **lst_b);
 void	safe_free(int *num);
 int		get_rest_num_2nd(t_list *lst);
+int		get_rest_num_3rd(t_list *lst);
 
 #endif

@@ -68,25 +68,47 @@ void	print_2stacks(t_list *lst_a, t_list *lst_b)
 // 	}
 // }
 
+void	free_b_nil(t_list **lst)
+{
+	catch_nil(lst);
+	if (*lst != NULL)
+		free(*lst);
+	// free(lst);
+}
+
 void	lst_all_free(t_list **lst_a)
 {
+	t_list	*tmp;
+
 	catch_top(lst_a);
-	while (check_nil((*lst_a)->value) != 1)
+	while (check_nil((*lst_a)->value) != 0)
 	{
-		printf("       *lst_a: %s", (*lst_a)->value);
-		free(*lst_a);
+
+		//printf("               *lst_a: %s\n", (*lst_a)->value);
+		tmp = *lst_a;
 		*lst_a = (*lst_a)->next;
+		free(tmp);
+		tmp = NULL;
 	}
+	printf("free'd:        *lst_a: %s\n", (*lst_a)->value);
 	free(*lst_a);
+	// free(lst_a);
+}
+
+void	init_lst(t_list **lst_a, t_list **lst_b)
+{
+	*lst_a = NULL;
+	*lst_b = NULL;
 }
 
 int	main(int argc, char *argv[])
 {
 	int		i;
-	// char	**array;
 	t_list	*lst_a;
 	t_list	*lst_b;
+	// char	**array;
 
+	init_lst(&lst_a, &lst_b);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
 	{
 		sort_str_num(argv[1], &lst_a);
@@ -116,8 +138,11 @@ int	main(int argc, char *argv[])
 	}
 	if (count_list(lst_a) >= 2 && confirm_sorted(lst_a) != 1)
 		sort_number(&lst_a, &lst_b);
-	print_circulatio(lst_a);
+	//if (lst_b != NULL)
+	//	print_2stacks(lst_a, lst_b);
+	printf("----------------------------------list size: %ld\n", sizeof(t_list));
 	lst_all_free(&lst_a);
+	free_b_nil(&lst_b);
 	// system("leaks push_swap");
 	// 8 77 34 10 9 1 54 4 7 66 32
 	// ./push_swap 8 77 34 10 9 1 54 4 7 66 44 79 0 17 81 100 62 90 15 200 47 3
