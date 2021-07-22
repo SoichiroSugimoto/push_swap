@@ -56,24 +56,11 @@ void	print_2stacks(t_list *lst_a, t_list *lst_b)
 	printf("\n\n");
 }
 
-// void	print_array(char **array, int cnt)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i < cnt)
-// 	{
-// 		printf("%s\n", array[i]);
-// 		i++;
-// 	}
-// }
-
 void	free_b_nil(t_list **lst)
 {
 	catch_nil(lst);
 	if (*lst != NULL)
 		free(*lst);
-	// free(lst);
 }
 
 void	lst_all_free(t_list **lst_a)
@@ -83,16 +70,12 @@ void	lst_all_free(t_list **lst_a)
 	catch_top(lst_a);
 	while (check_nil((*lst_a)->value) != 0)
 	{
-
-		//printf("               *lst_a: %s\n", (*lst_a)->value);
 		tmp = *lst_a;
 		*lst_a = (*lst_a)->next;
 		free(tmp);
 		tmp = NULL;
 	}
-	printf("free'd:        *lst_a: %s\n", (*lst_a)->value);
 	free(*lst_a);
-	// free(lst_a);
 }
 
 void	init_lst(t_list **lst_a, t_list **lst_b)
@@ -106,25 +89,10 @@ int	main(int argc, char *argv[])
 	int		i;
 	t_list	*lst_a;
 	t_list	*lst_b;
-	// char	**array;
 
 	init_lst(&lst_a, &lst_b);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
-	{
-		sort_str_num(argv[1], &lst_a);
-		// i = 0;
-		// array = get_as_atr(argv[1]);
-		// print_array(array, array_cnt(argv[1]));
-		// while (i < array_cnt(argv[1]))
-		// {
-		// 	if (ft_strlen(array[i]) >= 10)
-		// 		check_intrange(ft_atoi(array[i]));
-		// 	ft_lstadd_nilback(&lst_a, ft_lstnew(check_num_value(array[i])));
-		// 	i++;
-		// }
-		// printf("--------------------------\n");
-		// print_circulatio(lst_a);
-	}
+		get_as_str(argv[1], &lst_a);
 	else
 	{
 		i = 1;
@@ -136,11 +104,13 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 	}
+	printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+	print_circulatio(lst_a);
+	exit(1);//////////////////////////////////
 	if (count_list(lst_a) >= 2 && confirm_sorted(lst_a) != 1)
 		sort_number(&lst_a, &lst_b);
-	//if (lst_b != NULL)
-	//	print_2stacks(lst_a, lst_b);
-	printf("----------------------------------list size: %ld\n", sizeof(t_list));
+	if (lst_b != NULL)
+		print_2stacks(lst_a, lst_b);
 	lst_all_free(&lst_a);
 	free_b_nil(&lst_b);
 	// system("leaks push_swap");

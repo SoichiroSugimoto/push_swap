@@ -71,7 +71,7 @@ void	print_array(char **array, int cnt)
 	i = 0;
 	while (i <= cnt)
 	{
-		printf("             %s\n", array[i]);
+		printf("[%d]            %s\n", i, array[i]);
 		i++;
 	}
 }
@@ -88,8 +88,7 @@ void	malloc_error_double(char	**str)
 	}
 }
 
-// split_str_num
-char	**get_as_atr(char *str)
+char	**split_str_num(char *str)
 {
 	int		n;
 	int		i;
@@ -111,44 +110,48 @@ char	**get_as_atr(char *str)
 		array[i] = (char *)malloc(sizeof(char) * (len + 1));
 		malloc_error(array[i]);
 		ft_strlcpy(array[i], str, len);
-		printf("array[i]: %s\n", array[i]);////////
 		str += len;
 		i++;
 	}
 	array[i] = NULL;
-	printf("array[i]: %s\n", array[i]);////////
 	return (array);
 }
 
-// void	all_free(char **str)
-// {
-// 	int	i;
+void	free_array(char **array)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		free(str[i]);
-// 		str[i] = NULL;
-// 		i++;
-// 	}
-// }
+	i = 0;
+	while (array[i])
+	{
+		printf("                                        free_array[%d]:    %s\n", i, array[i]);
+		free(array[i]);
+		i++;
+	}
+	printf("                                        free_array[%d]:    %s\n", i, array[i]);
+	free(array[i]);
+	free(array);
+}
 
-void	sort_str_num(char *str, t_list **lst_a)
+void	get_as_str(char *str, t_list **lst_a)
 {
 	char	**array;
 	int		i;
 
 	i = 0;
-	array = get_as_atr(str);
-	printf("array_cnt: %d\n", array_cnt(str));
-	print_array(array, array_cnt(str));
+	array = split_str_num(str);
+	// printf("array_cnt: %d\n", array_cnt(str));
+	// printf("-------------print_array-------------------\n");
+	// print_array(array, array_cnt(str));
 	while (i < array_cnt(str))
 	{
 		if (ft_strlen(array[i]) >= 10)
 			check_intrange(ft_atoi(array[i]));
+		printf("get_as_str                 :%s\n", array[i]);
 		ft_lstadd_nilback(lst_a, ft_lstnew(check_num_value(array[i])));
 		i++;
 	}
 	printf("--------------------------\n");
 	print_circulatio2(*lst_a);
+	free_array(array);
 }

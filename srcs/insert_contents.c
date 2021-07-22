@@ -50,6 +50,7 @@ t_list	*ft_lstnew(void *value)
 	malloc_error(lst_new);
 	lst_new->value = value;
 	lst_new->next = NULL;
+	printf("value:                     :%s\n", value);
 	return (lst_new);
 }
 
@@ -74,4 +75,5 @@ void	ft_lstadd_nilback(t_list **lst, t_list *new)
 	new->prev = (*lst);
 	new->next = nil;
 	nil->prev = new;
+	printf("nilback                     :%s\n", (*lst)->value);
 }
