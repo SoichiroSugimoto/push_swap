@@ -25,57 +25,6 @@ int	array_cnt(char *str)
 	return (res);
 }
 
-void	joudge_empty2(t_list **lst)
-{
-	if (!*lst || !lst)
-		printf("Empty\n");
-}
-
-void	print_circulatio2(t_list *lst)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	catch_top(&lst);
-	joudge_empty2(&lst);
-	while (lst)
-	{
-		printf("[%d]  %s\n",i , lst->value);
-		if (check_nil(lst->value) == 0)
-			j++;
-		if (j >= 2)
-			break ;
-		lst = lst->next;
-		i++;
-	}
-}
-
-void	print_2stacks2(t_list *lst_a, t_list *lst_b)
-{
-	printf("\n");
-	printf("---------------[a]\n");
-	print_circulatio2(lst_a);
-	printf("\n");
-	printf("---------------[b]\n");
-	print_circulatio2(lst_b);
-	printf("--------------------------------------------\n");
-	printf("\n\n");
-}
-
-void	print_array(char **array, int cnt)
-{
-	int	i;
-
-	i = 0;
-	while (i <= cnt)
-	{
-		printf("[%d]            %s\n", i, array[i]);
-		i++;
-	}
-}
-
 void	malloc_error_double(char	**str)
 {
 	char	*txt;
@@ -124,34 +73,26 @@ void	free_array(char **array)
 	i = 0;
 	while (array[i])
 	{
-		printf("                                        free_array[%d]:    %s\n", i, array[i]);
 		free(array[i]);
 		i++;
 	}
-	printf("                                        free_array[%d]:    %s\n", i, array[i]);
 	free(array[i]);
 	free(array);
 }
 
-void	get_as_str(char *str, t_list **lst_a)
+char	**get_as_str(char *str, t_list **lst_a)
 {
 	char	**array;
 	int		i;
 
 	i = 0;
 	array = split_str_num(str);
-	// printf("array_cnt: %d\n", array_cnt(str));
-	// printf("-------------print_array-------------------\n");
-	// print_array(array, array_cnt(str));
 	while (i < array_cnt(str))
 	{
 		if (ft_strlen(array[i]) >= 10)
 			check_intrange(ft_atoi(array[i]));
-		printf("get_as_str                 :%s\n", array[i]);
 		ft_lstadd_nilback(lst_a, ft_lstnew(check_num_value(array[i])));
 		i++;
 	}
-	printf("--------------------------\n");
-	print_circulatio2(*lst_a);
-	free_array(array);
+	return (array);
 }

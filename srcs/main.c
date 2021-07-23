@@ -87,12 +87,14 @@ void	init_lst(t_list **lst_a, t_list **lst_b)
 int	main(int argc, char *argv[])
 {
 	int		i;
+	char	**array;
 	t_list	*lst_a;
 	t_list	*lst_b;
 
+	array = NULL;
 	init_lst(&lst_a, &lst_b);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
-		get_as_str(argv[1], &lst_a);
+		array = get_as_str(argv[1], &lst_a);
 	else
 	{
 		i = 1;
@@ -104,15 +106,13 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 	}
-	printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-	print_circulatio(lst_a);
-	exit(1);//////////////////////////////////
 	if (count_list(lst_a) >= 2 && confirm_sorted(lst_a) != 1)
 		sort_number(&lst_a, &lst_b);
 	if (lst_b != NULL)
 		print_2stacks(lst_a, lst_b);
 	lst_all_free(&lst_a);
 	free_b_nil(&lst_b);
+	free_array(array);
 	// system("leaks push_swap");
 	// 8 77 34 10 9 1 54 4 7 66 32
 	// ./push_swap 8 77 34 10 9 1 54 4 7 66 44 79 0 17 81 100 62 90 15 200 47 3

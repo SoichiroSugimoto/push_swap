@@ -21,7 +21,7 @@ int	partition(int array[], int left, int right)
 	piv = left;
 	while (i < j)
 	{
-		// check_duplication(array[piv], array[j]);
+		check_duplication(array[piv], array[j]);
 		while (array[i] < array[piv])
 			i++;
 		while (array[piv] < array[j])
@@ -42,18 +42,6 @@ void	quick_sort (int array[], int left, int right)
 		piv = partition(array, left, right);
 		quick_sort(array, left, piv - 1);
 		quick_sort(array, piv + 1, right);
-	}
-}
-
-void	print_array00(int array[])
-{
-	int	i;
-
-	i = 0;
-	while (array[i])
-	{
-		printf("array                 [%d]\n", array[i]);
-		i++;
 	}
 }
 
@@ -84,7 +72,6 @@ int	get_median(t_list *lst)
 	malloc_error(num);
 	lst_to_array(lst, num);
 	quick_sort(num, 0, vol - 1);
-	print_array00(num);
 	if (vol % 2 == 0)
 		res = num[(vol - 1) / 2];
 	else

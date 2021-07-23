@@ -49,8 +49,6 @@ int	confirm_sorted(t_list *lst)
 			return (0);
 		if (ft_atoi(lst->value) == ft_atoi((lst->next)->value))
 		{
-			printf("ft_atoi(lst->value):          %lld\n", ft_atoi(lst->value));
-			printf("ft_atoi((lst->next)->value):  %lld\n", ft_atoi((lst->next)->value));
 			ft_putstr_fd("Error: some arguments are duplicated.\n", 1);
 			exit (0);
 		}

@@ -23,8 +23,9 @@ void				ft_lstadd_nilback(t_list **lst, t_list *new);
 int					array_cnt(char *str);
 void				print_array(char **array, int cnt);
 void				malloc_error(void *point);
+void				free_array(char **array);
 char				**split_str_num(char *str);
-void				get_as_str(char *str, t_list **lst_a);
+char				**get_as_str(char *str, t_list **lst_a);
 
 void				print_circulatio(t_list *lst);
 void				print_2stacks(t_list *lst_a, t_list *lst_b);
