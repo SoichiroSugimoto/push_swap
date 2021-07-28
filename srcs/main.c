@@ -5,18 +5,6 @@
 #include "../include/utils.h"
 #include "../libft/libft.h"
 
-void	malloc_error(void *point)
-{
-	char	*txt;
-
-	txt = "Error: malloc error\n";
-	if (point == NULL)
-	{
-		ft_putstr_fd(txt, 1);
-		exit (0);
-	}
-}
-
 void	joudge_empty(t_list **lst)
 {
 	if (!*lst || !lst)
@@ -56,34 +44,6 @@ void	print_2stacks(t_list *lst_a, t_list *lst_b)
 	printf("\n\n");
 }
 
-void	free_b_nil(t_list **lst)
-{
-	catch_nil(lst);
-	if (*lst != NULL)
-		free(*lst);
-}
-
-void	lst_all_free(t_list **lst_a)
-{
-	t_list	*tmp;
-
-	catch_top(lst_a);
-	while (check_nil((*lst_a)->value) != 0)
-	{
-		tmp = *lst_a;
-		*lst_a = (*lst_a)->next;
-		free(tmp);
-		tmp = NULL;
-	}
-	free(*lst_a);
-}
-
-void	init_lst(t_list **lst_a, t_list **lst_b)
-{
-	*lst_a = NULL;
-	*lst_b = NULL;
-}
-
 int	main(int argc, char *argv[])
 {
 	int		i;
@@ -121,3 +81,4 @@ int	main(int argc, char *argv[])
 	// ./push_swap 8 77 34 10 9 1 54 4 7 66 32
 	// ./push_swap 8 77 34 10 9 1 54 4 7 66
 }
+

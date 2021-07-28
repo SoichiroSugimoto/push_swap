@@ -16,6 +16,7 @@ int		get_lstmax(t_list *lst);
 int		get_bottom_num(t_list *lst);
 int		confirm_sorted(t_list *lst);
 int		confirm_sort_3num(t_list *lst);
+int		check_sorted(t_list *lst_a, t_list *lst_b);
 void	sort_3num(t_list **lst);
 void	sort_2num(t_list **lst);
 void	under3_sort(t_list **lst);

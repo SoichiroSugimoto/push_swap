@@ -71,13 +71,16 @@ void	free_array(char **array)
 	int	i;
 
 	i = 0;
-	while (array[i])
+	if (array != NULL)
 	{
+		while (array[i])
+		{
+			free(array[i]);
+			i++;
+		}
 		free(array[i]);
-		i++;
+		free(array);
 	}
-	free(array[i]);
-	free(array);
 }
 
 char	**get_as_str(char *str, t_list **lst_a)
