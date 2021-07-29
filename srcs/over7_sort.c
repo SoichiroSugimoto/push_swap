@@ -11,6 +11,8 @@ int	check_sorted(t_list *lst_a, t_list *lst_b)
 	bottom = ft_atoi(lst_a->value);
 	if (top != get_lstmin(lst_a) || bottom != get_lstmax(lst_a))
 		return (0);
+	if (confirm_sorted(lst_a) == 1 && lst_b == NULL)
+		return (DONE);
 	if (confirm_sorted(lst_a) == 1 && count_list(lst_b) == 0)
 		return (DONE);
 	return (0);
@@ -79,7 +81,7 @@ void	over7_sort(t_list **lst_a, t_list **lst_b)
 			rotate_a(lst_a);
 	}
 	pb_for_leave(lst_a, lst_b);
-	under3_sort(lst_b);
+	under3_sort_b(lst_b);
 	pa_n_ra(lst_a, lst_b);
 	while (check_sorted(*lst_a, *lst_b) != 1)
 		over7_sort_2nd(lst_a, lst_b);

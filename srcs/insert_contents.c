@@ -3,7 +3,6 @@
 #include "../include/sort_number.h"
 #include "../include/utils.h"
 #include "../libft/libft.h"
-#include <stdio.h>
 #include <string.h>
 
 t_list	*ft_lstlast(t_list *lst)

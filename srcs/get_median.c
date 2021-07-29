@@ -1,5 +1,4 @@
 #include "../include/sort_number.h"
-#include <stdio.h>
 
 void	swap(int *x, int *y)
 {

@@ -1,5 +1,4 @@
 #include "../include/sort_number.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 void	under6_sort(t_list **lst_a, t_list **lst_b)

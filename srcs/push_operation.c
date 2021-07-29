@@ -1,9 +1,8 @@
 #include "../include/use_operations.h"
-#include <stdio.h>
 
 void	push_b(t_list **lst_a, t_list **lst_b)
 {
-	if (all_isnil(*lst_a) != 1)
+	if (*lst_a != NULL && all_isnil(*lst_a) != 1)
 	{
 		push_operation(lst_a, lst_b);
 		ft_putstr_fd("pb\n", 1);
@@ -12,7 +11,7 @@ void	push_b(t_list **lst_a, t_list **lst_b)
 
 void	push_a(t_list **lst_a, t_list **lst_b)
 {
-	if (all_isnil(*lst_b) != 1)
+	if (*lst_b != NULL && all_isnil(*lst_b) != 1)
 	{
 		push_operation(lst_b, lst_a);
 		ft_putstr_fd("pa\n", 1);

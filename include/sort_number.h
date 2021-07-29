@@ -3,7 +3,6 @@
 
 # include <string.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "insert_contents.h"
 # include "use_operations.h"
 # include "utils.h"
@@ -20,6 +19,9 @@ int		check_sorted(t_list *lst_a, t_list *lst_b);
 void	sort_3num(t_list **lst);
 void	sort_2num(t_list **lst);
 void	under3_sort(t_list **lst);
+void	sort_3num_b(t_list **lst);
+void	sort_2num_b(t_list **lst);
+void	under3_sort_b(t_list **lst);
 void	under6_sort(t_list **lst_a, t_list **lst_b);
 void	swap(int *x, int *y);
 int		partition(int array[], int left, int right);

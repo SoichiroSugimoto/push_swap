@@ -6,69 +6,28 @@
 #include "../../include/utils.h"
 #include "../../include/checker.h"
 
-
-void	joudge_empty(t_list **lst)
-{
-	if (!*lst || !lst)
-		printf("Empty\n");
-}
-
-void	print_circulatio(t_list *lst)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	catch_top(&lst);
-	joudge_empty(&lst);
-	while (lst)
-	{
-		printf("[%d]  %s\n",i , lst->value);
-		if (check_nil(lst->value) == 0)
-			j++;
-		if (j >= 2)
-			break ;
-		lst = lst->next;
-		i++;
-	}
-}
-
-void	print_2stacks(t_list *lst_a, t_list *lst_b)
-{
-	printf("\n");
-	printf("---------------[a]\n");
-	print_circulatio(lst_a);
-	printf("\n");
-	printf("---------------[b]\n");
-	print_circulatio(lst_b);
-	printf("--------------------------------------------\n");
-	printf("\n\n");
-}
-////////////////////////////////////////////////
-
 void	exec_operation(char *cmd, t_list **lst_a, t_list **lst_b)
 {
 	if (ft_strncmp(cmd, "sa", ft_strlen(cmd) - 1) == 0)
-		swap_operation(lst_a);
+		checker_swap(lst_a);
 	else if (ft_strncmp(cmd, "sb", ft_strlen(cmd) - 1) == 0)
-		swap_operation(lst_b);
+		checker_swap(lst_b);
 	else if (ft_strncmp(cmd, "ss", ft_strlen(cmd) - 1) == 0)
 		ss_checker(lst_a, lst_b);
 	else if (ft_strncmp(cmd, "pa", ft_strlen(cmd) - 1) == 0)
-		push_operation(lst_b, lst_a);
+		checker_push(lst_b, lst_a);
 	else if (ft_strncmp(cmd, "pb", ft_strlen(cmd) - 1) == 0)
-		push_operation(lst_a, lst_b);
+		checker_push(lst_a, lst_b);
 	else if (ft_strncmp(cmd, "ra", ft_strlen(cmd) - 1) == 0)
-		rotate_operation(lst_a);
+		checker_rotate(lst_a);
 	else if (ft_strncmp(cmd, "rb", ft_strlen(cmd) - 1) == 0)
-		rotate_operation(lst_b);
+		checker_rotate(lst_b);
 	else if (ft_strncmp(cmd, "rr", ft_strlen(cmd) - 1) == 0)
 		rr_checker(lst_a, lst_b);
 	else if (ft_strncmp(cmd, "rra", ft_strlen(cmd) - 1) == 0)
-		reverse_rotate_operation(lst_a);
+		checker_reverse_rotate(lst_a);
 	else if (ft_strncmp(cmd, "rrb", ft_strlen(cmd) - 1) == 0)
-		reverse_rotate_operation(lst_b);
+		checker_reverse_rotate(lst_b);
 	else if (ft_strncmp(cmd, "rrr", ft_strlen(cmd) - 1) == 0)
 		rrr_checker(lst_a, lst_b);
 	else
@@ -136,7 +95,6 @@ int	main(int argc, char *argv[])
 		}
 	}
 	checker_exec(&lst_a, &lst_b);
-	print_2stacks(lst_a, lst_b);
 	judge_checker(lst_a, lst_b);
 	lst_all_free(&lst_a);
 	free_b_nil(&lst_b);

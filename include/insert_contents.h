@@ -23,7 +23,4 @@ void				free_array(char **array);
 char				**split_str_num(char *str);
 char				**get_as_str(char *str, t_list **lst_a);
 
-void				print_circulatio(t_list *lst);
-void				print_2stacks(t_list *lst_a, t_list *lst_b);
-
 #endif

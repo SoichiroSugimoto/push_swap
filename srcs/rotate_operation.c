@@ -2,14 +2,20 @@
 
 void	rotate_a(t_list **lst)
 {
-	rotate_operation(lst);
-	ft_putstr_fd("ra\n", 1);
+	if (*lst != NULL)
+	{
+		rotate_operation(lst);
+		ft_putstr_fd("ra\n", 1);
+	}
 }
 
 void	rotate_b(t_list **lst)
 {
-	rotate_operation(lst);
-	ft_putstr_fd("rb\n", 1);
+	if (*lst != NULL)
+	{
+		rotate_operation(lst);
+		ft_putstr_fd("rb\n", 1);
+	}
 }
 
 void	rr(t_list **lst_a, t_list **lst_b)

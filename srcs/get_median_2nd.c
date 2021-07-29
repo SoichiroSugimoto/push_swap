@@ -1,6 +1,5 @@
 #include "../include/sort_number.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 int	not_sorted(t_list *lst)
 {

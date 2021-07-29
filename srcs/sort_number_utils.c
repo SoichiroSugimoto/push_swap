@@ -1,5 +1,4 @@
 #include "../include/sort_number.h"
-#include <stdio.h>
 
 int	get_lstmax(t_list *lst)
 {

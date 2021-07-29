@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "../include/insert_contents.h"
 #include "../include/sort_number.h"
 #include "../include/use_operations.h"

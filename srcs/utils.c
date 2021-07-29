@@ -2,8 +2,10 @@
 
 int	check_nil(char *str)
 {
-	if (!(strcmp(str, "nil")))
-		return (MATCH);
+	if (ft_strlen(str) > 3)
+		return (1);
+	if (!(ft_strncmp(str, "nil", 3)))
+		return (0);
 	return (1);
 }
 

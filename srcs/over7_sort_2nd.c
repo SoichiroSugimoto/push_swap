@@ -43,7 +43,7 @@ void	over7_sort_2nd_2(t_list **lst_a, t_list **lst_b, int n)
 {
 	rra_ntimes(lst_a, n);
 	pb_for_leave_2nd(lst_a, lst_b);
-	under3_sort(lst_b);
+	under3_sort_b(lst_b);
 	pa_n_ra(lst_a, lst_b);
 }
 

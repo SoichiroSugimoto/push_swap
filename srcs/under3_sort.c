@@ -1,5 +1,4 @@
 #include "../include/sort_number.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 int	confirm_sort_3num(t_list *lst)

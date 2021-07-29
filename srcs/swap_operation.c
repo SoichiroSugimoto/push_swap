@@ -2,14 +2,20 @@
 
 void	swap_a(t_list **lst)
 {
-	swap_operation(lst);
-	ft_putstr_fd("sa\n", 1);
+	if (*lst != NULL)
+	{
+		swap_operation(lst);
+		ft_putstr_fd("sa\n", 1);
+	}
 }
 
 void	swap_b(t_list **lst)
 {
-	swap_operation(lst);
-	ft_putstr_fd("sb\n", 1);
+	if (*lst != NULL)
+	{
+		swap_operation(lst);
+		ft_putstr_fd("sb\n", 1);
+	}
 }
 
 void	ss(t_list **lst_a, t_list **lst_b)
