@@ -96,7 +96,5 @@ int	main(int argc, char *argv[])
 	}
 	checker_exec(&lst_a, &lst_b);
 	judge_checker(lst_a, lst_b);
-	lst_all_free(&lst_a);
-	free_b_nil(&lst_b);
-	free_array(array);
+	free_for_checker(&lst_a, &lst_b, array);
 }

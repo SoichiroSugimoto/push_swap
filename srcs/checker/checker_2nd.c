@@ -15,18 +15,18 @@ void	read_error(int n)
 	txt2 = "Error: Operation is not existing.\n";
 	if (n == -1)
 	{
-		printf("%s", txt1);
+		ft_putstr_fd(txt1, 1);
 		exit(0);
 	}
 	if (n > 4)
 	{
-		printf("%s", txt2);
+		ft_putstr_fd(txt2, 1);
 		exit(0);
 	}
 }
 
 void	not_exist(void)
 {
-	printf("Error: Operation is not existing.\n");
+	ft_putstr_fd("Error: Operation is not existing.\n", 1);
 	exit(0);
 }
