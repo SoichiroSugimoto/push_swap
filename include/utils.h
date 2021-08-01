@@ -20,5 +20,6 @@ void		malloc_error(void *point);
 void		free_b_nil(t_list **lst);
 void		lst_all_free(t_list **lst_a);
 void		init_lst(t_list **lst_a, t_list **lst_b);
+int			ft_strlcpy2(char *dst, const char *src, int dstsize);
 
 #endif

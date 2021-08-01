@@ -33,12 +33,6 @@ void	lst_to_array_2nd(t_list *lst, int array[])
 	}
 }
 
-void	safe_free(int *num)
-{
-	free(num);
-	num = NULL;
-}
-
 int	get_median_2nd(t_list *lst)
 {
 	int	*num;

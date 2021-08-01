@@ -5,30 +5,31 @@
 #include "../../libft/libft.h"
 #include "../../include/utils.h"
 #include "../../include/checker.h"
+#include <stdio.h>
 
 void	exec_operation(char *cmd, t_list **lst_a, t_list **lst_b)
 {
-	if (ft_strncmp(cmd, "sa", ft_strlen(cmd) - 1) == 0)
+	if (ft_strncmp(cmd, "sa", ft_strlen(cmd)) == 0)
 		checker_swap(lst_a);
-	else if (ft_strncmp(cmd, "sb", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "sb", ft_strlen(cmd)) == 0)
 		checker_swap(lst_b);
-	else if (ft_strncmp(cmd, "ss", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "ss", ft_strlen(cmd)) == 0)
 		ss_checker(lst_a, lst_b);
-	else if (ft_strncmp(cmd, "pa", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "pa", ft_strlen(cmd)) == 0)
 		checker_push(lst_b, lst_a);
-	else if (ft_strncmp(cmd, "pb", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "pb", ft_strlen(cmd)) == 0)
 		checker_push(lst_a, lst_b);
-	else if (ft_strncmp(cmd, "ra", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "ra", ft_strlen(cmd)) == 0)
 		checker_rotate(lst_a);
-	else if (ft_strncmp(cmd, "rb", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "rb", ft_strlen(cmd)) == 0)
 		checker_rotate(lst_b);
-	else if (ft_strncmp(cmd, "rr", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "rr", ft_strlen(cmd)) == 0)
 		rr_checker(lst_a, lst_b);
-	else if (ft_strncmp(cmd, "rra", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "rra", ft_strlen(cmd)) == 0)
 		checker_reverse_rotate(lst_a);
-	else if (ft_strncmp(cmd, "rrb", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "rrb", ft_strlen(cmd)) == 0)
 		checker_reverse_rotate(lst_b);
-	else if (ft_strncmp(cmd, "rrr", ft_strlen(cmd) - 1) == 0)
+	else if (ft_strncmp(cmd, "rrr", ft_strlen(cmd)) == 0)
 		rrr_checker(lst_a, lst_b);
 	else
 		not_exist();
@@ -49,19 +50,19 @@ void	init_array(char *array, int n)
 void	checker_exec(t_list **lst_a, t_list **lst_b)
 {
 	int		n;
-	char	cmd[5];
+	char	*cmd;
 
-	n = 2;
-	init_array(cmd, 5);
-	while (n > 1)
+	n = 0;
+	cmd = NULL;
+	while (n > -1)
 	{
-		n = read(0, cmd, sizeof(char) * 5);
-		if (n == 1)
+		n = get_next_line(0, &cmd);
+		if (n == -1 || n == 0)
 			break ;
-		read_error(n);
 		exec_operation(cmd, lst_a, lst_b);
-		init_array(cmd, 4);
+		safe_free2(&cmd);
 	}
+	read_error(n);
 }
 
 void	judge_checker(t_list *lst_a, t_list *lst_b)

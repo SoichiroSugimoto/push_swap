@@ -3,6 +3,7 @@
 #include "../include/use_operations.h"
 #include "../include/utils.h"
 #include "../libft/libft.h"
+#include <stdio.h>
 
 int	array_cnt(char *str)
 {
@@ -57,7 +58,7 @@ char	**split_str_num(char *str)
 			len++;
 		array[i] = (char *)malloc(sizeof(char) * (len + 1));
 		malloc_error(array[i]);
-		ft_strlcpy(array[i], str, len);
+		ft_strlcpy2(array[i], str, len);
 		str += len;
 		i++;
 	}

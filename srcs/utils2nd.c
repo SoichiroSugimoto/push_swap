@@ -42,3 +42,21 @@ void	init_lst(t_list **lst_a, t_list **lst_b)
 	*lst_a = NULL;
 	*lst_b = NULL;
 }
+
+int	ft_strlcpy2(char *dst, const char *src, int dstsize)
+{
+	int	i;
+
+	i = 0;
+	if (!src || !dst)
+		return (0);
+	if (!dstsize)
+		return (ft_strlen(src));
+	while (i + 1 <= dstsize && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
+}
