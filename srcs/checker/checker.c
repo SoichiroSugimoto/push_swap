@@ -57,10 +57,16 @@ void	checker_exec(t_list **lst_a, t_list **lst_b)
 	while (n > -1)
 	{
 		n = get_next_line(0, &cmd);
-		if (n == -1 || n == 0)
+		if (n == -1)
+		{
+			free(cmd);
 			break ;
-		exec_operation(cmd, lst_a, lst_b);
-		safe_free2(&cmd);
+		}
+		if (*cmd != '\0')
+			exec_operation(cmd, lst_a, lst_b);
+		free(cmd);
+		if (n == 0)
+			break ;
 	}
 	read_error(n);
 }

@@ -1,88 +1,110 @@
 #include "libft.h"
 
-static	void	safe_free(void **p)
+int	find_newline_code(char *str)
 {
-	if (*p != NULL)
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (ERROR);
+	while (str[i])
 	{
-		free(*p);
-		*p = NULL;
+		if (str[i] == '\n')
+			return (i);
+		i++;
 	}
+	if (str[i] == '\0')
+		return (-2);
+	return (ERROR);
 }
 
-static int	make_line_and_set_stock(char **line, char **buff, char **stock)
+int	free_join(char **dst, char **src, int n)
 {
+	int		i;
 	char	*tmp;
-	size_t	len;
 
-	len = 0;
-	tmp = *stock;
-	while (*tmp && *tmp != '\n')
-	{
-		len++;
-		tmp++;
-	}
-	*line = ft_substr(*stock, 0, len);
-	if (*tmp == '\n')
-		tmp++;
-	tmp = ft_substr(tmp, 0, ft_strlen(tmp));
-	safe_free((void **)stock);
-	*stock = tmp;
-	if (!line || !stock)
-	{
-		safe_free((void **)buff);
-		safe_free((void **)stock);
-		return (FAILED);
-	}
-	return (OK);
+	i = 0;
+	if (!(*dst))
+		*dst = "";
+	if (!(*src))
+		*src = "";
+	tmp = *dst;
+	*dst = ft_strjoin(*dst, *src);
+	if (n != 0)
+		error_free(&tmp);
+	if (dst == NULL)
+		return (ERROR);
+	else
+		return (SUCCESS);
 }
 
-static int	make_buff(int fd, ssize_t *read_len, char **buff, char **stock)
+int	len_cpy_line(char *save)
 {
-	*read_len = read(fd, *buff, BUFFER_SIZE);
-	if (*read_len == -1)
-	{
-		safe_free((void **)buff);
-		safe_free((void **)stock);
-		return (FAILED);
-	}
-	(*buff)[*read_len] = '\0';
-	return (OK);
+	int	len;
+
+	len = find_newline_code(save) + 1;
+	if (len > (int)ft_strlen(save))
+		len = (int)ft_strlen(save);
+	if (find_newline_code(save) == -2)
+		len = ft_strlen(save) + 1;
+	if (find_newline_code(save) == -2 && ft_strlen(save) == 0)
+		len = 0;
+	return (len);
 }
 
-static int	make_stock(char **buff, char **stock)
+int	cpy_line(char ***line, char **save)
 {
-	*stock = ft_strjoin(*stock, *buff);
-	if (*stock == NULL)
-	{
-		safe_free((void **)buff);
-		safe_free((void **)stock);
-		return (FAILED);
-	}
-	return (OK);
+	int		i;
+	int		l1;
+	int		l2;
+	char	*tmp;
+
+	i = 1;
+	l1 = len_cpy_line(*save);
+	l2 = len_cpy_line(*save);
+	if (l2 == 0)
+		l2 = 1;
+	if (find_newline_code(*save) == -2)
+		i = 0;
+	**line = (char *)malloc(sizeof(char) * l2);
+	if (**line == NULL)
+		return (error_free(save));
+	ft_strlcpy(**line, *save, l2);
+	tmp = *save;
+	if (find_newline_code(*save) == -2)
+		l1 = ft_strlen(*save);
+	*save = ft_strjoin(*(save) + l1, "");
+	if (*save == NULL)
+		return (ERROR);
+	error_free(&tmp);
+	return (i);
 }
 
 int	get_next_line(int fd, char **line)
 {
-	static char	*stock;
-	char		*buff;
-	ssize_t		read_len;
+	static char		*save;
+	static int		n;
+	char			*buf;
+	int				i;
+	size_t			size;
 
-	read_len = 1;
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1);
-	if (!ft_malloc((void **)&buff, sizeof(char), BUFFER_SIZE + 1))
-		return (-1);
-	while ((read_len > 0) && !ft_strchr(stock, '\n'))
+	size = 1;
+	i = 0;
+	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (!line || BUFFER_SIZE <= 0 || fd < 0 || buf == NULL)
+		return (error_free(&buf));
+	while (find_newline_code(save) < 0 && size > 0)
 	{
-		if (make_buff(fd, &read_len, &buff, &stock) == FAILED)
-			return (-1);
-		if (make_stock(&buff, &stock) == FAILED)
-			return (-1);
+		size = read(fd, buf, BUFFER_SIZE);
+		if ((int)size == -1)
+			return (error_free(&buf));
+		buf[size] = '\0';
+		i = free_join(&save, &buf, n);
+		if (i == -1)
+			return (error_free(&save));
+		n++;
 	}
-	if (make_line_and_set_stock(line, &buff, &stock) == FAILED)
-		return (-1);
-	if (read_len == 0)
-		safe_free((void **)&stock);
-	safe_free((void **)&buff);
-	return (!!read_len);
+	if (n != 0)
+		error_free(&buf);
+	return (cpy_line(&line, &save));
 }
