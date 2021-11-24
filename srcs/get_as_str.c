@@ -1,9 +1,16 @@
-#include "../include/insert_contents.h"
-#include "../include/sort_number.h"
-#include "../include/use_operations.h"
-#include "../include/utils.h"
-#include "../libft/libft.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_as_str.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/24 15:49:40 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/24 16:01:59 by sosugimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/push_swap.h"
 
 int	array_cnt(char *str)
 {

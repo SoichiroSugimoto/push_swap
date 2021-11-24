@@ -1,20 +1,32 @@
-#include "../include/use_operations.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate_operation.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/24 15:52:20 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/24 16:02:52 by sosugimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	reverse_rotate_a(t_list **lst)
+#include "../include/push_swap.h"
+
+void	reverse_rotate_a(t_list **lst, t_ps *info)
 {
 	if (*lst != NULL)
 	{
 		reverse_rotate_operation(lst);
-		ft_putstr_fd("rra\n", 1);
+		info->result = join_char(info->result, RRA);
 	}
 }
 
-void	reverse_rotate_b(t_list **lst)
+void	reverse_rotate_b(t_list **lst, t_ps *info)
 {
 	if (*lst != NULL)
 	{
 		reverse_rotate_operation(lst);
-		ft_putstr_fd("rrb\n", 1);
+		info->result = join_char(info->result, RRB);
 	}
 }
 

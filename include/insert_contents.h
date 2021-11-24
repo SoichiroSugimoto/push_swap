@@ -1,15 +1,7 @@
 #ifndef INSERT_CONTENTS_H
 # define INSERT_CONTENTS_H
 
-# include <string.h>
-# include <stdlib.h>
-
-typedef struct s_list
-{
-	char			*value;
-	struct s_list	*next;
-	struct s_list	*prev;
-}					t_list;
+# include "push_swap.h"
 
 int					check_nil(char *str);
 t_list				*ft_lstlast(t_list *lst);

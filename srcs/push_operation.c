@@ -1,20 +1,32 @@
-#include "../include/use_operations.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_operation.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/24 15:52:10 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/24 16:02:48 by sosugimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	push_b(t_list **lst_a, t_list **lst_b)
+#include "../include/push_swap.h"
+
+void	push_b(t_list **lst_a, t_list **lst_b, t_ps *info)
 {
 	if (*lst_a != NULL && all_isnil(*lst_a) != 1)
 	{
 		push_operation(lst_a, lst_b);
-		ft_putstr_fd("pb\n", 1);
+		info->result = join_char(info->result, PB);
 	}
 }
 
-void	push_a(t_list **lst_a, t_list **lst_b)
+void	push_a(t_list **lst_a, t_list **lst_b, t_ps *info)
 {
 	if (*lst_b != NULL && all_isnil(*lst_b) != 1)
 	{
 		push_operation(lst_b, lst_a);
-		ft_putstr_fd("pa\n", 1);
+		info->result = join_char(info->result, PA);
 	}
 }
 

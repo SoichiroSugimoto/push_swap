@@ -1,10 +1,4 @@
-#include "../../include/insert_contents.h"
-#include "../../include/sort_number.h"
-#include "../../include/use_operations.h"
-#include "../../include/utils.h"
-#include "../../libft/libft.h"
-#include "../../include/utils.h"
-#include "../../include/checker.h"
+#include "../../include/push_swap.h"
 
 void	ss_checker(t_list **lst_a, t_list **lst_b)
 {

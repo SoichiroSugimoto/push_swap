@@ -1,20 +1,32 @@
-#include "../include/use_operations.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate_operation.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/24 15:52:50 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/24 16:03:05 by sosugimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	rotate_a(t_list **lst)
+#include "../include/push_swap.h"
+
+void	rotate_a(t_list **lst, t_ps *info)
 {
 	if (*lst != NULL)
 	{
 		rotate_operation(lst);
-		ft_putstr_fd("ra\n", 1);
+		info->result = join_char(info->result, RA);
 	}
 }
 
-void	rotate_b(t_list **lst)
+void	rotate_b(t_list **lst, t_ps *info)
 {
 	if (*lst != NULL)
 	{
 		rotate_operation(lst);
-		ft_putstr_fd("rb\n", 1);
+		info->result = join_char(info->result, RB);
 	}
 }
 

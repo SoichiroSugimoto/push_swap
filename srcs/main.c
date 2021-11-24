@@ -1,8 +1,16 @@
-#include "../include/insert_contents.h"
-#include "../include/sort_number.h"
-#include "../include/use_operations.h"
-#include "../include/utils.h"
-#include "../libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/24 15:50:58 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/24 16:02:25 by sosugimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/push_swap.h"
 
 int	main(int argc, char *argv[])
 {
@@ -28,6 +36,7 @@ int	main(int argc, char *argv[])
 	}
 	if (count_list(lst_a) >= 2 && confirm_sorted(lst_a) != 1)
 		sort_number(&lst_a, &lst_b);
+	// print_all_lst(&lst_a);
 	lst_all_free(&lst_a);
 	free_b_nil(&lst_b);
 	free_array(array);

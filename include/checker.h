@@ -1,15 +1,7 @@
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include "insert_contents.h"
-# include "use_operations.h"
-# include "sort_number.h"
-# include "utils.h"
-# include "../libft/libft.h"
-# include <string.h>
-# include <stdlib.h>
-# include <limits.h>
-# include <unistd.h>
+# include "push_swap.h"
 
 void	checker_swap(t_list **lst);
 void	checker_push(t_list **lst_a, t_list **lst_b);

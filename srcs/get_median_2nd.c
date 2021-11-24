@@ -1,5 +1,16 @@
-#include "../include/sort_number.h"
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_median_2nd.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/24 15:50:08 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/24 16:02:06 by sosugimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/push_swap.h"
 
 int	not_sorted(t_list *lst)
 {

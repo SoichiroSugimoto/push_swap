@@ -1,20 +1,32 @@
-#include "../include/use_operations.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap_operation.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/24 16:03:30 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/24 16:03:31 by sosugimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	swap_a(t_list **lst)
+#include "../include/push_swap.h"
+
+void	swap_a(t_list **lst, t_ps *info)
 {
 	if (*lst != NULL)
 	{
 		swap_operation(lst);
-		ft_putstr_fd("sa\n", 1);
+		info->result = join_char(info->result, SA);
 	}
 }
 
-void	swap_b(t_list **lst)
+void	swap_b(t_list **lst, t_ps *info)
 {
 	if (*lst != NULL)
 	{
 		swap_operation(lst);
-		ft_putstr_fd("sb\n", 1);
+		info->result = join_char(info->result, SB);
 	}
 }
 

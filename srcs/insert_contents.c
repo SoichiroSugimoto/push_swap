@@ -1,9 +1,16 @@
-#include "../include/insert_contents.h"
-#include "../include/use_operations.h"
-#include "../include/sort_number.h"
-#include "../include/utils.h"
-#include "../libft/libft.h"
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   insert_contents.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/24 15:50:46 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/24 16:02:21 by sosugimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/push_swap.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
