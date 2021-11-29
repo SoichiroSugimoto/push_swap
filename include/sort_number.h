@@ -14,7 +14,7 @@ void	sort_2num(t_list **lst, t_ps *info);
 void	under3_sort(t_list **lst, t_ps *info);
 void	sort_3num_b(t_list **lst, t_ps *info);
 void	sort_2num_b(t_list **lst, t_ps *info);
-void	under3_sort_b(t_list **lst, t_ps *info);
+int		under3_sort_b(t_list **lst, t_ps *info);
 void	under6_sort(t_list **lst_a, t_list **lst_b, t_ps *info);
 void	swap(int *x, int *y);
 int		partition(int array[], int left, int right);
@@ -37,6 +37,14 @@ char	*join_char(char *dst, char src);
 int		arrange_marge_output(char *str, int i);
 void	arrange_output(char *str, int i);
 void	print_output(char *str);
+
+//  get_struct.c
+void	catch_lstmax(t_list **lst, t_ps *info);
+int		get_cnt_sorted(t_list **lst_a, t_ps *info);
+void	init_struct_ps(t_list *lst_a, t_ps *info);
+
+//  new_sort.c
+void	new_sort(t_list **lst_a, t_list **lst_b, t_ps *info);
 
 // 後で消す
 void	print_all_lst(t_list **lst);

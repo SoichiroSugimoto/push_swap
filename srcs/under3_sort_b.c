@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:03:45 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/24 16:03:46 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/11/28 19:55:40 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ void	sort_2num_b(t_list **lst, t_ps *info)
 		swap_b(lst, info);
 }
 
-void	under3_sort_b(t_list **lst, t_ps *info)
+int	under3_sort_b(t_list **lst, t_ps *info)
 {
+	int	cnt;
+
+	cnt = count_list(*lst);
 	if (count_list(*lst) == 3)
 		sort_3num_b(lst, info);
 	else if (count_list(*lst) == 2)
 		sort_2num_b(lst, info);
+	return (cnt);
 }

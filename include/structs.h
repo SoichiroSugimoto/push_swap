@@ -26,11 +26,15 @@ typedef struct s_list
 
 typedef struct s_ps
 {
-	char			*result;
-	int				median;
-	int				*meds;
-	int				num_of_meds;
+	int				*sorted_array;
 	int				net_lst;
+	int				min;
+	int				max;
+	int				median;
+	int				*meds_array;
+	int				num_of_meds;
+	int				cnt_sorted;
+	char			*result;
 }					t_ps;
 
 #endif

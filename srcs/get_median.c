@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:50:19 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/24 16:02:15 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/11/25 00:16:36 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	partition(int array[], int left, int right)
 	return (j);
 }
 
-void	quick_sort (int array[], int left, int right)
+void	quick_sort(int array[], int left, int right)
 {
 	int	piv;
 
