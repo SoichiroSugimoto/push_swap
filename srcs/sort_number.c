@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:03:19 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/28 20:26:38 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:15:54 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sort_number(t_list **lst_a, t_list **lst_b)
 	else if (4 <= num && num <= 6)
 		under6_sort(lst_a, lst_b, info);
 	else
-		new_sort(lst_a, lst_b, info);
+		over7_sort(lst_a, lst_b, info);
 	print_output(info->result);
 	free(info);
 }

@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:53:13 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/24 16:03:11 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/11/30 12:56:51 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,4 @@ int	get_bottom_num(t_list *lst)
 	catch_bottom(&lst);
 	res = ft_atoi(lst->value);
 	return (res);
-}
-
-int	confirm_sorted(t_list *lst)
-{
-	catch_top(&lst);
-	while (check_nil((lst->next)->value) != 0)
-	{
-		if (ft_atoi(lst->value) > ft_atoi((lst->next)->value))
-			return (0);
-		if (ft_atoi(lst->value) == ft_atoi((lst->next)->value))
-		{
-			ft_putstr_fd("Error: some arguments are duplicated.\n", 1);
-			exit (0);
-		}
-		lst = lst->next;
-	}
-	return (DONE);
 }

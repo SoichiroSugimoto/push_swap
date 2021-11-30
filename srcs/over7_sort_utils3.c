@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   over7_sort_util.c                                  :+:      :+:    :+:   */
+/*   over7_sort_utils3.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 15:51:47 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/24 16:02:37 by sosugimo         ###   ########.fr       */
+/*   Created: 2021/11/30 11:24:00 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/30 11:36:11 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	get_rest_num_2nd(t_list *lst)
+int	judge_closest_way(t_list *lst_b, int med)
 {
-	int	res;
+	int	vol;
+	int	*num;
+	int	i;
 
-	if (not_sorted(lst) % 2 == 0)
-		res = not_sorted(lst) / 2;
-	else
-		res = (not_sorted(lst) - 1) / 2;
-	return (res);
-}
-
-int	get_rest_num_3rd(t_list *lst)
-{
-	int	res;
-
-	if (count_list(lst) % 2 == 0)
-		res = count_list(lst) / 2;
-	else
-		res = (count_list(lst) + 1) / 2;
-	return (res);
+	i = 0;
+	vol = count_list(lst_b);
+	num = (int *)malloc(sizeof(int) * vol);
+	malloc_error(num);
+	lst_to_array(lst_b, num);
+	quick_sort(num, 0, vol - 1);
+	while (num[i] != med)
+		i++;
+	free(num);
+	if (i > vol / 2)
+		return (1);
+	return (0);
 }

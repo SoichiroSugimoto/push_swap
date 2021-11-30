@@ -1,67 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/29 19:50:06 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/11/30 13:33:36 by sosugimo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 
-void	exec_operation(char *cmd, t_list **lst_a, t_list **lst_b)
+void	dupcheck_for_checker(t_list *lst)
 {
-	if (ft_strncmp(cmd, "sa", ft_strlen(cmd)) == 0)
-		checker_swap(lst_a);
-	else if (ft_strncmp(cmd, "sb", ft_strlen(cmd)) == 0)
-		checker_swap(lst_b);
-	else if (ft_strncmp(cmd, "ss", ft_strlen(cmd)) == 0)
-		ss_checker(lst_a, lst_b);
-	else if (ft_strncmp(cmd, "pa", ft_strlen(cmd)) == 0)
-		checker_push(lst_b, lst_a);
-	else if (ft_strncmp(cmd, "pb", ft_strlen(cmd)) == 0)
-		checker_push(lst_a, lst_b);
-	else if (ft_strncmp(cmd, "ra", ft_strlen(cmd)) == 0)
-		checker_rotate(lst_a);
-	else if (ft_strncmp(cmd, "rb", ft_strlen(cmd)) == 0)
-		checker_rotate(lst_b);
-	else if (ft_strncmp(cmd, "rr", ft_strlen(cmd)) == 0)
-		rr_checker(lst_a, lst_b);
-	else if (ft_strncmp(cmd, "rra", ft_strlen(cmd)) == 0)
-		checker_reverse_rotate(lst_a);
-	else if (ft_strncmp(cmd, "rrb", ft_strlen(cmd)) == 0)
-		checker_reverse_rotate(lst_b);
-	else if (ft_strncmp(cmd, "rrr", ft_strlen(cmd)) == 0)
-		rrr_checker(lst_a, lst_b);
-	else
-		not_exist();
-}
-
-void	init_array(char *array, int n)
-{
+	int	vol;
 	int	i;
+	int	*num;
 
 	i = 0;
-	while (i < n)
+	vol = count_list(lst);
+	num = (int *)malloc(sizeof(int) * vol);
+	malloc_error(num);
+	lst_to_array(lst, num);
+	quick_sort(num, 0, vol - 1);
+	while (i < vol - 1)
 	{
-		array[i] = '\0';
+		check_duplication(num[i], num[i + 1]);
 		i++;
 	}
+	free(num);
 }
 
-void	checker_exec(t_list **lst_a, t_list **lst_b)
+void	checker_args_error(int argc)
 {
-	int		n;
-	char	*cmd;
-
-	n = 0;
-	cmd = NULL;
-	while (n > -1)
-	{
-		n = get_next_line(0, &cmd);
-		if (n == -1)
-		{
-			free(cmd);
-			break ;
-		}
-		if (*cmd != '\0')
-			exec_operation(cmd, lst_a, lst_b);
-		free(cmd);
-		if (n == 0)
-			break ;
-	}
-	read_error(n);
+	if (argc == 1)
+		exit(0);
 }
 
 void	judge_checker(t_list *lst_a, t_list *lst_b)
@@ -79,6 +53,7 @@ int	main(int argc, char *argv[])
 	t_list	*lst_a;
 	t_list	*lst_b;
 
+	checker_args_error(argc);
 	array = NULL;
 	init_lst(&lst_a, &lst_b);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
@@ -94,6 +69,7 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 	}
+	dupcheck_for_checker(lst_a);
 	checker_exec(&lst_a, &lst_b);
 	judge_checker(lst_a, lst_b);
 	free_for_checker(&lst_a, &lst_b, array);
