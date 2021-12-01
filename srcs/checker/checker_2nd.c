@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:49:48 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/29 19:49:49 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/01 20:04:21 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,15 @@
 
 void	read_error(int n)
 {
-	char	*txt1;
-	char	*txt2;
-
-	txt1 = "Error: function;read error\n";
-	txt2 = "Error: Operation is not existing.\n";
-	if (n == -1)
+	if (n == -1 || n > 4)
 	{
-		ft_putstr_fd(txt1, 1);
-		exit(0);
-	}
-	if (n > 4)
-	{
-		ft_putstr_fd(txt2, 1);
+		ft_putstr_fd("Error\n", 1);
 		exit(0);
 	}
 }
 
 void	not_exist(void)
 {
-	ft_putstr_fd("Error: Operation is not existing.\n", 1);
+	ft_putstr_fd("Error\n", 1);
 	exit(0);
 }

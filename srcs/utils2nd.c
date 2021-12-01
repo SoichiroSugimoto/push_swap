@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:04:55 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/24 16:04:57 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/01 20:08:40 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	malloc_error(void *point)
 {
-	char	*txt;
-
-	txt = "Error: malloc error\n";
 	if (point == NULL)
 	{
-		ft_putstr_fd(txt, 1);
+		ft_putstr_fd("Error\n", 1);
 		exit (0);
 	}
 }

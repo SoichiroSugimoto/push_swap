@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:49:40 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/24 16:01:59 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/01 20:06:18 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	malloc_error_double(char	**str)
 {
 	char	*txt;
 
-	txt = "Error: malloc error\n";
+	txt = "Error\n";
 	if (str == NULL)
 	{
 		ft_putstr_fd(txt, 1);

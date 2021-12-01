@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:04:38 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/24 16:04:41 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/01 20:08:20 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,31 +58,18 @@ char	*check_num_value(char *str)
 
 void	check_duplication(int num1, int num2)
 {
-	char	*text;
-
-	text = "Error: some arguments are duplications.\n";
 	if (num1 == num2)
 	{
-		ft_putstr_fd(text, 1);
+		ft_putstr_fd("Error\n", 1);
 		exit (0);
 	}
 }
 
 void	check_intrange(long long num)
 {
-	char	*text_max;
-	char	*text_min;
-
-	text_max = "Error: some arguments are bigger than an integer\n";
-	text_min = "Error: some arguments are smaller than an integer\n";
-	if (num > INT_MAX)
+	if (num > INT_MAX || num < INT_MIN)
 	{
-		ft_putstr_fd(text_max, 1);
-		exit (0);
-	}
-	if (num < INT_MIN)
-	{
-		ft_putstr_fd(text_min, 1);
+		ft_putstr_fd("Error\n", 1);
 		exit (0);
 	}
 }
