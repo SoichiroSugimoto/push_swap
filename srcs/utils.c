@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:04:38 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/12/01 20:08:20 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/03 23:51:21 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,14 @@ int	count_list(t_list *lst)
 char	*check_num_value(char *str)
 {
 	int		i;
-	char	*text;
 
 	i = 0;
-	text = "Error: some arguments aren’t integers.\n";
 	while (str[i])
 	{
-		if (!((48 <= str[i] && str[i] <= 57) || str[i] == 45))
+		if (!((48 <= str[i] && str[i] <= 57)
+				|| (str[i] == 45 && i == 0 && ft_strlen(str) > 1)))
 		{
-			ft_putstr_fd(text, 1);
+			ft_putstr_fd("Error\n", 1);
 			exit (0);
 		}
 		i++;
