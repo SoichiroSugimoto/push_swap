@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:15:28 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/24 16:01:48 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/04 02:07:52 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*join_char(char *dst, char src)
 	int		i;
 	char	*new;
 
-	if (!dst || !strlen(dst))
+	if (!dst || !ft_strlen(dst))
 	{
 		new = (char *)malloc(sizeof(char) * 2);
 		malloc_error(new);
@@ -25,7 +25,7 @@ char	*join_char(char *dst, char src)
 		new[1] = '\0';
 		return (new);
 	}
-	new = (char *)malloc(sizeof(char) * (strlen(dst) + 2));
+	new = (char *)malloc(sizeof(char) * (ft_strlen(dst) + 2));
 	malloc_error(new);
 	i = 0;
 	while (dst[i])
@@ -33,7 +33,7 @@ char	*join_char(char *dst, char src)
 		new[i] = dst[i];
 		i++;
 	}
-	if (dst && strlen(dst))
+	if (dst && ft_strlen(dst))
 		free(dst);
 	new[i++] = src;
 	new[i] = '\0';
