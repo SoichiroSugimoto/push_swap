@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:48:55 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/30 11:39:22 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/04 02:32:56 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,5 @@ int		judge_closest_way(t_list *lst_b, int med);
 
 //  check_sorted.c
 int		check_sorted(t_list *lst_a, t_list *lst_b);
-
-// 後で消す
-void	print_all_lst(t_list **lst);
-void	print_both(t_list **lst_a, t_list **lst_b);
 
 #endif
