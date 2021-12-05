@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:12:30 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/29 21:18:30 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/05 12:12:58 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ void	init_struct_ps(t_list *lst_a, t_ps *info)
 	info->cnt_sorted = 0;
 	info->result = NULL;
 	info->median = info->sorted_array[vol / 2];
-	info->num_of_meds = 0;
+	info->numof_pb_marks = 0;
 }

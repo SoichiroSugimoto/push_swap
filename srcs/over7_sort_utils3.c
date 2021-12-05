@@ -5,29 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 11:24:00 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/30 11:36:11 by sosugimo         ###   ########.fr       */
+/*   Created: 2021/12/04 20:41:12 by sosugimo          #+#    #+#             */
+/*   Updated: 2021/12/05 12:12:29 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	judge_closest_way(t_list *lst_b, int med)
+int	cnt_tofix_intarray(t_ps *info, int num)
 {
-	int	vol;
-	int	*num;
-	int	i;
+	int		i;
+	int		cnt;
 
 	i = 0;
-	vol = count_list(lst_b);
-	num = (int *)malloc(sizeof(int) * vol);
-	malloc_error(num);
-	lst_to_array(lst_b, num);
-	quick_sort(num, 0, vol - 1);
-	while (num[i] != med)
+	cnt = info->numof_pb_marks;
+	while (i < cnt)
+	{
+		if (info->pb_marks[i] == num)
+			return (1);
 		i++;
-	free(num);
-	if (i > vol / 2)
-		return (1);
+	}
 	return (0);
+}
+
+void	fix_pbmarks_array(t_ps *info, int **marks_array, int num)
+{
+	int	*tmp;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (info->numof_pb_marks > 0)
+		info->numof_pb_marks -= cnt_tofix_intarray(info, num);
+	tmp = *marks_array;
+	*marks_array = (int *)malloc(sizeof(int) * info->numof_pb_marks);
+	while (j < info->numof_pb_marks)
+	{
+		if (tmp[i] != num)
+		{
+			(*marks_array)[j] = tmp[i];
+			j++;
+		}
+		i++;
+	}
+	free(tmp);
 }

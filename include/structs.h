@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:49:01 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/29 19:49:01 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/05 12:13:33 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_ps
 	int				min;
 	int				max;
 	int				median;
-	int				*meds_array;
-	int				num_of_meds;
+	int				*pb_marks;
+	int				numof_pb_marks;
 	int				cnt_sorted;
 	char			*result;
 }					t_ps;

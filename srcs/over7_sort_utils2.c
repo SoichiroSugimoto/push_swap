@@ -6,23 +6,34 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:28:55 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/30 11:40:46 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/05 12:20:53 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	prepare_toleave(t_list **lst_a, t_list **lst_b, t_ps *info)
+void	pa_toleave_half(t_list **lst_a, t_list **lst_b, t_ps *info)
 {
-	int	med;
 	int	cnt;
+	int	med;
+	int	i;
 
 	cnt = count_list(*lst_b);
 	med = get_median_new(*lst_b);
-	if (cnt > 5)
+	i = 0;
+	while (count_list(*lst_b) > cnt / 2 && cnt >= 6)
 	{
-		pa_med_first(lst_a, lst_b, med, info);
-		set_meds_array(med, &(info->meds_array), info);
+		catch_top(lst_b);
+		if (ft_atoi((*lst_b)->value) >= med && i == 0)
+		{
+			set_marks_array(ft_atoi((*lst_b)->value),
+				&(info->pb_marks), info);
+			i++;
+		}
+		if (ft_atoi((*lst_b)->value) >= med)
+			push_a(lst_a, lst_b, info);
+		else
+			rotate_b(lst_b, info);
 	}
 }
 
@@ -42,64 +53,49 @@ int	get_median_new(t_list *lst)
 	return (res);
 }
 
-void	set_meds_array(int med, int **meds_array, t_ps *info)
+int	marks_dup_check(int med, int *array, int cnt)
+{
+	int	i;
+
+	i = 0;
+	while (i < cnt)
+	{
+		if (array[i] == med)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	set_marks_array(int mark, int **pb_marks, t_ps *info)
 {
 	int	*tmp;
 	int	i;
 
 	i = 0;
-	if (info->num_of_meds == 0)
+	if (info->numof_pb_marks == 0)
 	{
-		*meds_array = (int *)malloc(sizeof(int) * 1);
-		(*meds_array)[0] = med;
-		info->num_of_meds++;
+		*pb_marks = (int *)malloc(sizeof(int) * 1);
+		(*pb_marks)[0] = mark;
+		info->numof_pb_marks++;
 	}
-	else
+	else if (marks_dup_check(mark, *pb_marks, info->numof_pb_marks) == 1)
 	{
-		tmp = *meds_array;
-		*meds_array = (int *)malloc(sizeof(int) * (info->num_of_meds + 1));
-		while (i < info->num_of_meds)
+		tmp = *pb_marks;
+		*pb_marks = (int *)malloc(sizeof(int) * (info->numof_pb_marks + 1));
+		while (i < info->numof_pb_marks)
 		{
-			(*meds_array)[i] = tmp[i];
+			(*pb_marks)[i] = tmp[i];
 			i++;
 		}
-		(*meds_array)[i] = med;
-		info->num_of_meds++;
+		(*pb_marks)[i] = mark;
+		info->numof_pb_marks++;
 		free(tmp);
-		quick_sort(*meds_array, 0, info->num_of_meds - 1);
+		quick_sort(*pb_marks, 0, info->numof_pb_marks - 1);
 	}
 }
 
-void	pa_med_first(t_list **lst_a, t_list **lst_b, int med, t_ps *info)
-{
-	int	cnt;
-	int	judge;
-
-	cnt = count_list(*lst_b);
-	catch_top(lst_b);
-	if (cnt == 4)
-		med = get_lstmin(*lst_b);
-	judge = judge_closest_way(*lst_b, med);
-	while (judge == 1 && ft_atoi((*lst_b)->value) != med)
-	{
-		catch_top(lst_b);
-		if (ft_atoi((*lst_b)->value) == med)
-			break ;
-		rotate_b(lst_b, info);
-	}
-	while (judge == 0 && ft_atoi((*lst_b)->value) != med)
-	{
-		catch_top(lst_b);
-		if (ft_atoi((*lst_b)->value) == med)
-			break ;
-		reverse_rotate_b(lst_b, info);
-	}
-	push_a(lst_a, lst_b, info);
-	if (cnt == 4)
-		rotate_a(lst_a, info);
-}
-
-int	get_proper_med(t_list **lst_a, t_ps *info)
+int	get_proper_mark(t_list **lst_a, t_ps *info)
 {
 	int	i;
 	int	bottom;
@@ -107,11 +103,11 @@ int	get_proper_med(t_list **lst_a, t_ps *info)
 	i = 0;
 	catch_bottom(lst_a);
 	bottom = ft_atoi((*lst_a)->value);
-	while (info->meds_array[i] <= bottom)
+	while (info->pb_marks[i] <= bottom)
 	{
-		if (i >= info->num_of_meds - 1)
+		if (i >= info->numof_pb_marks - 1)
 			return (info->min);
 		i++;
 	}
-	return (info->meds_array[i]);
+	return (info->pb_marks[i]);
 }

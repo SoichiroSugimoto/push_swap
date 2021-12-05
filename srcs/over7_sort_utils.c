@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:27:30 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/30 11:22:17 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/05 12:20:47 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ void	pa_toleave_three(t_list **lst_a, t_list **lst_b, t_ps *info)
 {
 	int	cnt;
 	int	med;
+	int	i;
 
 	while (count_list(*lst_b) >= 4)
 	{
 		cnt = count_list(*lst_b);
 		med = get_median_new(*lst_b);
-		prepare_toleave(lst_a, lst_b, info);
-		while (count_list(*lst_b) > cnt / 2 && cnt >= 6)
-		{
-			catch_top(lst_b);
-			if (ft_atoi((*lst_b)->value) >= med)
-				push_a(lst_a, lst_b, info);
-			else
-				rotate_b(lst_b, info);
-		}
+		i = 0;
+		pa_toleave_half(lst_a, lst_b, info);
 		while (count_list(*lst_b) > 3 && 3 <= cnt && cnt < 6)
 		{
 			catch_top(lst_b);
+			if (ft_atoi((*lst_b)->value) >= med && i == 0)
+			{
+				set_marks_array(ft_atoi((*lst_b)->value),
+					&(info->pb_marks), info);
+				i++;
+			}
 			if (ft_atoi((*lst_b)->value) > med)
 				push_a(lst_a, lst_b, info);
 			else
@@ -51,33 +51,35 @@ void	sortb_n_set(t_list **lst_a, t_list **lst_b, t_ps *info)
 	}
 }
 
-void	pb_till_minmeds(t_list **lst_a, t_list **lst_b, t_ps *info)
+void	pb_till_mark(t_list **lst_a, t_list **lst_b, t_ps *info)
 {
-	int	med;
+	int	mark;
 
-	med = get_proper_med(lst_a, info);
+	mark = get_proper_mark(lst_a, info);
 	catch_top(lst_a);
-	while (ft_atoi((*lst_a)->value) != med)
+	while (ft_atoi((*lst_a)->value) != mark)
 	{
 		catch_top(lst_a);
+		fix_pbmarks_array(info, &(info->pb_marks), ft_atoi((*lst_a)->value));
 		push_b(lst_a, lst_b, info);
 	}
-	if (med != info->min)
+	if (mark != info->min)
 	{
 		catch_top(lst_a);
+		fix_pbmarks_array(info, &(info->pb_marks), ft_atoi((*lst_a)->value));
 		push_b(lst_a, lst_b, info);
 	}
 }
 
-int	cnt_to_minmed(t_list **lst_a, t_ps *info)
+int	cnt_to_marks(t_list **lst_a, t_ps *info)
 {
 	int	cnt;
-	int	med;
+	int	mark;
 
 	cnt = 0;
-	med = get_proper_med(lst_a, info);
+	mark = get_proper_mark(lst_a, info);
 	catch_top(lst_a);
-	while (ft_atoi((*lst_a)->value) != med)
+	while (ft_atoi((*lst_a)->value) != mark)
 	{
 		*lst_a = (*lst_a)->next;
 		cnt++;
@@ -91,7 +93,6 @@ void	first_divi(t_list **lst_a, t_list **lst_b, t_ps *info)
 	int	cnt;
 
 	med = get_median_new(*lst_a);
-	set_meds_array(med, &(info->meds_array), info);
 	cnt = info->net_lst;
 	catch_top(lst_a);
 	while (count_list(*lst_a) >= cnt / 2 && cnt % 2 == 0)

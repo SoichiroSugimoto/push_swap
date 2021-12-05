@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:48:55 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/12/04 02:32:56 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/05 12:22:40 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,20 @@ int		get_cnt_sorted(t_list **lst_a, t_ps *info);
 void	init_struct_ps(t_list *lst_a, t_ps *info);
 
 //  over7_sort.c
+void	over7_sort(t_list **lst_a, t_list **lst_b, t_ps *info);
 int		get_median_new(t_list *lst);
-void	set_meds_array(int med, int **meds_array, t_ps *info);
+void	set_marks_array(int med, int **meds_array, t_ps *info);
 void	pa_med_first(t_list **lst_a, t_list **lst_b, int med, t_ps *info);
 void	prepare_toleave(t_list **lst_a, t_list **lst_b, t_ps *info);
 void	pa_toleave_three(t_list **lst_a, t_list **lst_b, t_ps *info);
+void	pa_toleave_half(t_list **lst_a, t_list **lst_b, t_ps *info);
 void	sortb_n_set(t_list **lst_a, t_list **lst_b, t_ps *info);
-int		get_proper_med(t_list **lst_a, t_ps *info);
-void	pb_till_minmeds(t_list **lst_a, t_list **lst_b, t_ps *info);
-int		cnt_to_minmed(t_list **lst_a, t_ps *info);
+int		get_proper_mark(t_list **lst_a, t_ps *info);
+void	pb_till_mark(t_list **lst_a, t_list **lst_b, t_ps *info);
+int		cnt_to_marks(t_list **lst_a, t_ps *info);
 void	first_divi(t_list **lst_a, t_list **lst_b, t_ps *info);
-void	over7_sort(t_list **lst_a, t_list **lst_b, t_ps *info);
-int		judge_closest_way(t_list *lst_b, int med);
+int		cnt_tofix_intarray(t_ps *info, int pb_mark);
+void	fix_pbmarks_array(t_ps *info, int **marks_array, int pb_mark);
 
 //  check_sorted.c
 int		check_sorted(t_list *lst_a, t_list *lst_b);
