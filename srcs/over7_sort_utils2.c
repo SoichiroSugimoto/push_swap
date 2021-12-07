@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:28:55 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/12/05 12:20:53 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/07 17:21:58 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ int	get_proper_mark(t_list **lst_a, t_ps *info)
 	i = 0;
 	catch_bottom(lst_a);
 	bottom = ft_atoi((*lst_a)->value);
+	if (info->numof_pb_marks == 0)
+		return (info->min);
 	while (info->pb_marks[i] <= bottom)
 	{
 		if (i >= info->numof_pb_marks - 1)

@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:11:21 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/12/05 12:10:54 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/07 17:42:07 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void	over7_sort(t_list **lst_a, t_list **lst_b, t_ps *info)
 		sortb_n_set(lst_a, lst_b, info);
 	}
 	free(info->pb_marks);
-	free(info->sorted_array);
 }

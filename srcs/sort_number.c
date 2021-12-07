@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:03:19 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/11/29 21:15:54 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/07 17:42:16 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	sort_number(t_list **lst_a, t_list **lst_b)
 	else
 		over7_sort(lst_a, lst_b, info);
 	print_output(info->result);
+	free(info->sorted_array);
 	free(info);
 }

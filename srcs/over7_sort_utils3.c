@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:41:12 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/12/05 12:12:29 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/07 17:27:33 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,28 @@ int	cnt_tofix_intarray(t_ps *info, int num)
 void	fix_pbmarks_array(t_ps *info, int **marks_array, int num)
 {
 	int	*tmp;
+	int	cnt;
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	if (info->numof_pb_marks > 0)
-		info->numof_pb_marks -= cnt_tofix_intarray(info, num);
+	cnt = info->numof_pb_marks;
+	info->numof_pb_marks -= cnt_tofix_intarray(info, num);
 	tmp = *marks_array;
-	*marks_array = (int *)malloc(sizeof(int) * info->numof_pb_marks);
-	while (j < info->numof_pb_marks)
+	if (info->numof_pb_marks > 0)
 	{
-		if (tmp[i] != num)
+		*marks_array = (int *)malloc(sizeof(int) * info->numof_pb_marks);
+		while (j < info->numof_pb_marks)
 		{
-			(*marks_array)[j] = tmp[i];
-			j++;
+			if (tmp[i] != num)
+			{
+				(*marks_array)[j] = tmp[i];
+				j++;
+			}
+			i++;
 		}
-		i++;
 	}
-	free(tmp);
+	if (cnt > 0)
+		free(tmp);
 }
