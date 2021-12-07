@@ -16,6 +16,7 @@ SRCS		=	srcs/arrange_output.c \
 				srcs/get_as_str.c \
 				srcs/over7_sort_utils.c \
 				srcs/sort_number_utils.c \
+				srcs/sort_number_utils2.c \
 				srcs/utils2nd.c \
 				srcs/get_median.c \
 				srcs/over7_sort_utils2.c \
@@ -40,6 +41,7 @@ SRCS2		=	srcs/arrange_output.c \
 				srcs/get_as_str.c \
 				srcs/over7_sort_utils.c \
 				srcs/sort_number_utils.c \
+				srcs/sort_number_utils2.c \
 				srcs/utils2nd.c \
 				srcs/get_median.c \
 				srcs/over7_sort_utils2.c \

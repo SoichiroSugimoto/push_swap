@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:48:55 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/12/05 12:22:40 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/08 00:45:55 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "push_swap.h"
 
 int		get_lstmin(t_list *lst);
+int		get_lstsecond(t_list *lst);
+int		get_lstthird(t_list *lst);
 int		get_lstmax(t_list *lst);
 int		get_bottom_num(t_list *lst);
 int		confirm_sorted(t_list *lst);
@@ -27,6 +29,7 @@ void	under3_sort(t_list **lst, t_ps *info);
 void	sort_3num_b(t_list **lst, t_ps *info);
 void	sort_2num_b(t_list **lst, t_ps *info);
 int		under3_sort_b(t_list **lst, t_ps *info);
+void	rver_sort_3num_b(t_list **lst, t_ps *info);
 void	under6_sort(t_list **lst_a, t_list **lst_b, t_ps *info);
 void	swap(int *x, int *y);
 int		partition(int array[], int left, int right);
