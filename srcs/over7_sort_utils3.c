@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:41:12 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/12/07 17:27:33 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/11 23:44:16 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,11 @@ int	cnt_tofix_intarray(t_ps *info, int num)
 void	fix_pbmarks_array(t_ps *info, int **marks_array, int num)
 {
 	int	*tmp;
-	int	cnt;
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	cnt = info->numof_pb_marks;
 	info->numof_pb_marks -= cnt_tofix_intarray(info, num);
 	tmp = *marks_array;
 	if (info->numof_pb_marks > 0)
@@ -53,6 +51,8 @@ void	fix_pbmarks_array(t_ps *info, int **marks_array, int num)
 			i++;
 		}
 	}
-	if (cnt > 0)
+	else
+		*marks_array = NULL;
+	if (tmp)
 		free(tmp);
 }
