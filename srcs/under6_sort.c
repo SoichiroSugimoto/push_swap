@@ -6,7 +6,7 @@
 /*   By: sosugimo <sosugimo@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:04:08 by sosugimo          #+#    #+#             */
-/*   Updated: 2021/12/08 00:56:59 by sosugimo         ###   ########.fr       */
+/*   Updated: 2021/12/08 01:13:23 by sosugimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	num5_sort(t_list **lst_a, t_list **lst_b, t_ps *info)
 
 	min = get_lstmin(*lst_a);
 	second = get_lstsecond(*lst_a);
-	// printf("min: %d\nsecond: %d\n", min, second);
 	while (count_list(*lst_a) > 3)
 	{
 		catch_top(lst_a);
