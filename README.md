@@ -12,9 +12,8 @@ the lowest possible number of actions. To succeed you’ll have to manipulate va
 None
 
 #### Compile<br>
-1) `$ make` in root dir to generate libftprintf.a<br>
-2) `$ gcc libftprintf.a main.c` to generate a.out<br>
-3) `$ ./a.out` to implement program
+1) `$ make` in root dir to generate push_swap<br>
+3) `$ ./push_swap <random numbers : 43 2 10 53 23>` to implement program
 <br>
 <br>
 <br>
