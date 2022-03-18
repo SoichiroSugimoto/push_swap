@@ -15,6 +15,9 @@ None
 1) `$ make` in root dir to generate push_swap<br>
 3) `$ ./push_swap <random numbers : 43 2 10 53 23>` to implement program
 <br>
+
+![ダウンロード (1)](https://user-images.githubusercontent.com/52186679/158960309-3f0c2a83-cc85-4f93-83bc-3939a185aa63.gif)
+
 <br>
 <br>
 <br>
