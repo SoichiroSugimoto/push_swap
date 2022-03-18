@@ -9,15 +9,7 @@ the lowest possible number of actions. To succeed you’ll have to manipulate va
 
 ## ●　USAGE
 #### Preparation<br>
-・main.c<br>
-```
-#include "srcs/ft_printf.h"
-
-int main()
-{
-	ft_printf("%s\n", "apple");
-}
-```
+None
 
 #### Compile<br>
 1) `$ make` in root dir to generate libftprintf.a<br>
